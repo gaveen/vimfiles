@@ -1,0 +1,95 @@
+Tricks
+======
+
+Notes if you are new to Vim:
+    # Insert mode is only for entering text. Everything else is
+      done in other modes such as Normal/Command mode.
+    # a buffer to Vim is similar to what a tab is to a web browser.
+
+Here are some of the significant tweaks I've made and, some of the
+features made available via the plugins. Please read the comments in
+the .vimrc file to understand how these are set.
+
+
+  - Map Leader Key to:                              ,
+      Therefore <leader>t means ,t
+  - Function Key shortcuts
+      Map F1 as Esc to avoid mistakes:              <F1>
+      Toggle auto-indenting when pasting:           <F2>
+      Toggle auto-completing matching pairs:        <F3>
+      Toggle spell checking (default lang: en_US):  <F4>
+      Apply main color scheme:                      <F5>
+      Apply alternative color scheme:               <F6>
+      Go to previous buffer:                        <F7>
+      Go to next buffer:                            <F8>
+      Trigger jump to buffer:                       <F9>
+      Trigger show a margin:                        <F10>
+      Toggle fullscreen in gvim (default: disabled) <F11>
+    Shortcuts F9, F10 require an input before <CR>
+  - Shortcuts for system clipboard operations
+    in setups which support them
+      Regular Copy, Cut & Paste remains:            y,x and p
+      Copy to clipboard:                            <leader>y
+      Cut to clipboard:                             <leader>x
+      Paste from clipboard:                         <leader>p
+  - Select the text that was just pasted            <leader>v
+  - Save a file with 'sudo' privileges:             :w!!
+  - Compare the changes since the last save:        <leader>?
+  - Toggle directory tree pane:                     <leader>d
+  - Toggle tagbar pane:                             <leader>t
+  - Toggle temporary jotting area (not saved):      <leader>s
+  - See and manage all open buffers:                <leader>be
+  - Toggle commenting the selection:                <leader>c<space>
+  - Clear highlighting the searched patterns:       <leader><space>
+  - Trigger jump to word motion:                    <leader><leader>w
+  - Toggle displaying non-printable characters:     <leader>l
+  - Remove trailing whitespaces in current file:    <leader>W
+  - Hard-wrap lines in the current paragraph:       <leader>Q
+  - Fuzzy find pattern in files, buffers, etc.:     <ctrl>p
+  - Auto-complete words [in Insert mode]:           <ctrl>n
+  - Auto-complete code keywords [in Insert mode]:   <ctrl>x<ctrl>o
+  - Toggle code folds based on syntax:              za
+  - Spelling suggestion for the word under cursor:  z=
+  - Jump to matching other of a pair (same as %):   <tab>
+  - Automatic completion of matching pairs
+      Eg: (), [], {}, '', "", etc.
+  - Auto-editing of matching pairs. For examples, see:
+      https://github.com/tpope/vim-surround
+  - Better text aligning support. For examples, see:
+      http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+  - Use _ and + keys to increase and decrease selection blocks
+  - Default to use 2 spaces instead of tab character
+      Exceptions configured for: go, python, shell, c, c++, java
+  - Show non printable characters such as: tab, trailing spaces
+  - List and indicate open/active buffers in the bottom status bar
+  - Advanced support for Go, Puppet, Pandoc, etc.
+      vim-go depends on external downloads. Check .vimrc for details.
+      For examples, see: https://github.com/fatih/vim-go
+  - Advanced support for Git via fugitive and gitv plugins
+  - Disabled (by default) shortcut for full screen gvim if supported
+  - Patterns are case insensitive when uppercase letters are not used
+  - Flash the screen to notify instead of making a sound
+  - Try to approximate your colorscheme when it's not natively supported
+  - A few decent colorschemes to choose from (both dark and light)
+
+
+Finding Help
+------------
+Since Vim is an advanced editor and plugins add even more features,
+it's out of the scope of this document to provide help. But here's
+how you can find the help.
+
+Vim comes with extensive help documentation. To find out more about a
+given topic, access the vim help by typing :h {topic}.
+Eg: to find about Vim's text folding features, type :h folding
+
+Also, please note that most of the plugins come with documentation.
+Therefore please try to refer the relevant documetation the same way
+to find out more about additional shortcuts & configuration options.
+Eg: to find more about motion shortcuts enabled by EasyMotion plugin,
+    type :h easymotion
+
+To check which plugins you have installed, see inside .vim/bundle/
+
+Additionally #vim IRC channel on freenode.net is a great place to ask
+questions you may have about vim.
