@@ -17,13 +17,16 @@ How to setup
 ------------
 1. Clone this repository from GitHub.
     $ git clone https://github.com/gaveen/vimfiles.git
-2. Link the cloned .vim and .vimrc to home directory
-    e.g., assuming the cloned repo is in ~/Apps/
+2. Update sumodules (to fetch Vundle)
+    $ cd vimfiles/
+    $ git submodule update --init
+3. Link the cloned .vim and .vimrc to home directory
+    e.g., assuming the cloned repo is ~/Apps/vimfiles
           $ ln -s ~/Apps/vimfiles/.vim ~/.vim
           $ ln -s ~/Apps/vim/.vimrc ~/.vimrc
-3. Launch vim and in normal mode, run :PluginInstall
+4. Launch vim, and in normal mode, enter :PluginInstall
 
-4. To update plugins when needed, run :PluginUpdate
+5. To update plugins when needed, run :PluginUpdate
 
 
 Quick setup
