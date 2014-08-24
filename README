@@ -17,7 +17,7 @@ How to setup
 ------------
 1. Clone this repository from GitHub.
     $ git clone https://github.com/gaveen/vimfiles.git
-2. Update sumodules (to fetch Vundle)
+2. Update submodules (to fetch Vundle)
     $ cd vimfiles/
     $ git submodule update --init
 3. Link the cloned .vim and .vimrc to home directory
@@ -42,9 +42,9 @@ Requirements
 - vim and/or gvim (version 7.3 or higher)
     Package: Fedora family => vim-enhanced / vim-X11,
              Debian family => vim / vim-gnome
-- git (not-needed for quick setup, needed for updating)
+- git (not-needed for quick setup)
     Package: Fedora family => git, Debian family => git-core
-- Internet connectivity to fetch the plugins and updates
+- Internet connectivity (not-needed for quick setup)
 
 
 Optional
@@ -54,11 +54,14 @@ Optional
     if you use a Debian family OS, uncomment necessary line in vimrc
 - exuberant ctags - to use the tagbar feature
     Package: Fedora family => ctags, Debian family => exuberant-ctags
+- mercurial - to auto-fetch binary dependencies for plugin-go (vim-go)
+    Package: Fedora family => mercurial, Debian family => mercurial
+    if you want to auto-fetch binaries, comment necessary line in vimrc
 - wmctrl - if you want to use gvim in a full screen mode
     Package: Fedora family => wmctrl, Debian family => wmctrl
     if your window manager supports this, uncomment necessary lines
 - vim-latex - Vim LaTeX Suite plugin to use vim as a LaTeX/TeX IDE
-    Package: Fedora family => vim-latex, Debian => vim-latexsuite
+    Package: Fedora family => vim-latex, Debian family => vim-latexsuite
 
 
 Usage Tricks
