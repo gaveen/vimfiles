@@ -42,9 +42,9 @@ Requirements
 - vim and/or gvim (version 7.3 or higher)
     Package: Fedora family => vim-enhanced / vim-X11,
              Debian family => vim / vim-gnome
-- git (not-needed for quick setup)
+- git (not-needed during quick setup)
     Package: Fedora family => git, Debian family => git-core
-- Internet connectivity (not-needed for quick setup)
+- Internet connectivity (not-needed during quick setup)
 
 
 Optional
