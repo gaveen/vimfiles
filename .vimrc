@@ -164,34 +164,10 @@ nnoremap <leader>Q gwip
 " Map w!! to write file with sudo, when forgot to open with sudo.
 cmap w!! w !sudo tee % >/dev/null
 
-" Only do this part if compiled with support for autocommands
-if has("autocmd")
-  augroup linux
-    autocmd!
-    " When editing a file, always jump to the last cursor position
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
-    " don't write swapfile on most commonly used directories for NFS mounts or USB sticks
-    autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
-
-    " Switch to working directory of the open file
-    autocmd BufEnter * lcd %:p:h
-
-    " Custom filetypes settings: Python, Shell, Go, C, C++, Java, JSON, Vagrant
-    au FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
-    au FileType go set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
-    au BufRead,BufNewFile *.json setfiletype javascript
-    au BufRead,BufNewFile Vagrantfile setfiletype ruby
-  augroup END
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern
+" When the terminal supports colors, turn...
 if &t_Co > 2 || has("gui_running")
-  syntax enable
-  set hlsearch
+  syntax enable                       " syntax highlighting on
+  set hlsearch                        " highlighting last searched pattern
 endif
 
 " No blinking cursor. See http://www.linuxpowertop.org/known.php
@@ -207,6 +183,34 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 nnoremap <leader>? :DiffSaved<CR>
+
+" Autocommands and groups (if supported)
+if has("autocmd")
+  augroup general
+    autocmd!
+    " When editing a file, always jump to the last cursor position
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal! g'\"" |
+    \ endif
+    " Switch to working directory of the open file
+    autocmd BufEnter * lcd %:p:h
+  augroup END
+
+" Custom filetypes settings: Python, Shell, C, C++, Java, JSON, Vagrant
+  augroup code_langs
+    autocmd!
+    autocmd FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd BufRead,BufNewFile *.json setfiletype javascript
+    autocmd BufRead,BufNewFile Vagrantfile setfiletype ruby
+  augroup END
+
+" Custom filetype settings: Go
+  augroup golang
+    autocmd!
+    autocmd FileType go set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+  augroup END
+endif
 
 " Plugin: Auto Pairs - key to toggle auto-complete
 let g:AutoPairsShortcutToggle = '<F3>'
