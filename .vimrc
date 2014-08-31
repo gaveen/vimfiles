@@ -164,9 +164,9 @@ nnoremap <leader>Q gwip
 " Map w!! to write file with sudo, when forgot to open with sudo.
 cmap w!! w !sudo tee % >/dev/null
 
-" When the terminal supports colors, turn...
+" When the terminal supports colors, turn on...
 if &t_Co > 2 || has("gui_running")
-  syntax enable                       " syntax highlighting on
+  syntax enable                       " syntax highlighting
   set hlsearch                        " highlighting last searched pattern
 endif
 
@@ -197,18 +197,13 @@ if has("autocmd")
     autocmd BufEnter * lcd %:p:h
   augroup END
 
-" Custom filetypes settings: Python, Shell, C, C++, Java, JSON, Vagrant
+" Custom filetypes settings: Go, Python, Shell, C, C++, Java, JSON, Vagrant
   augroup code_langs
     autocmd!
+    autocmd FileType go set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
     autocmd FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
     autocmd BufRead,BufNewFile *.json setfiletype javascript
     autocmd BufRead,BufNewFile Vagrantfile setfiletype ruby
-  augroup END
-
-" Custom filetype settings: Go
-  augroup golang
-    autocmd!
-    autocmd FileType go set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
   augroup END
 endif
 
@@ -242,6 +237,18 @@ nnoremap <leader>s :call ToggleScratch()<CR>
 let g:go_disable_autoinstall = 1
 " Advanced features of vim-go depends on external binaries. To have
 " them automatically downloaded, comment the above and restart vim.
+" Plugin: Go - keys to run vim-go integrated tools
+if has("autocmd")
+  augroup plugin_go
+    autocmd!
+    autocmd FileType go nmap <leader>gb <Plug>(go-build)
+    autocmd FileType go nmap <leader>gf <Plug>(go-def-split)
+    autocmd FileType go nmap <leader>gd <Plug>(go-doc)
+    autocmd FileType go nmap <leader>gi <Plug>(go-info)
+    autocmd FileType go nmap <leader>gr <Plug>(go-run)
+    autocmd FileType go nmap <leader>gt <Plug>(go-test)
+  augroup END
+endif
 
 " Plugin: LaTeX - configuration (plugin not bundled here)
 set grepprg=grep\ -nH\ $*
