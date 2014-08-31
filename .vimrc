@@ -207,31 +207,24 @@ if has("autocmd")
   augroup END
 endif
 
+" Plugin: Ack - uncomment suitable line if configuration is necessary
+"let g:ackprg="ack -H --nocolor --nogroup"         " if ack --version < 1.92
+"let g:ackprg="ack-grep -H --nocolor --nogroup"    " for Debian/Ubuntu
+
 " Plugin: Auto Pairs - key to toggle auto-complete
 let g:AutoPairsShortcutToggle = '<F3>'
 
-" Plugin: NERDTree - use colors, cursorline and return/enter key
-let NERDTreeHijackNetrw = 0
-let NERDChristmasTree = 1
-let NERDTreeHighlightCursorline = 1
-" Plugin: NERDTree - keys to toggle NERDTree
-nnoremap <leader>d :NERDTreeToggle<CR>
+" Plugin: buftabs - configuration
+let g:buftabs_only_basename=1
+let g:buftabs_separator = ":"
+let g:buftabs_marker_start = "[#"
+let g:buftabs_marker_end = "]"
+let g:buftabs_marker_modified = " *"
 
-" Plugin: Tagbar - give focus the Tagbar when it's opened
-let g:tagbar_autofocus = 1
-" Plugin: Tagbar - keys to toggle Tagbar
-nnoremap <leader>t :TagbarToggle<CR>
-
-" Plugin: Scratch - define invoke function
-function! ToggleScratch()
-  if expand('%') == g:ScratchBufferName
-    quit
-  else
-    Sscratch
-  endif
-endfunction
-" Plugin: Scratch - keys to toggle Scratch buffer
-nnoremap <leader>s :call ToggleScratch()<CR>
+" Plugin: CSApprox - configuration to enable CSApprox explicitly
+"let s:use_CSApprox = 1
+" If the colorscheme does not look ok, try after uncommenting the above line
+" If that makes it worse, revert back to commented state
 
 " Plugin: Go - disable auto-downloading go binaries
 let g:go_disable_autoinstall = 1
@@ -254,25 +247,33 @@ endif
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 
+" Plugin: NERDTree - use colors, cursorline and return/enter key
+let NERDTreeHijackNetrw = 0
+let NERDChristmasTree = 1
+let NERDTreeHighlightCursorline = 1
+" Plugin: NERDTree - keys to toggle NERDTree
+nnoremap <leader>d :NERDTreeToggle<CR>
+
 " Plugin: Pandoc - no folding by default
 let g:pandoc_no_folding = 1
 
-" Plugin: buftabs - configuration
-let g:buftabs_only_basename=1
-let g:buftabs_separator = ":"
-let g:buftabs_marker_start = "[#"
-let g:buftabs_marker_end = "]"
-let g:buftabs_marker_modified = " *"
+" Plugin: Scratch - define invoke function
+function! ToggleScratch()
+  if expand('%') == g:ScratchBufferName
+    quit
+  else
+    Sscratch
+  endif
+endfunction
+" Plugin: Scratch - keys to toggle Scratch buffer
+nnoremap <leader>s :call ToggleScratch()<CR>
 
-" Plugin: Ack - uncomment suitable line if configuration is necessary
-"let g:ackprg="ack -H --nocolor --nogroup"         " if ack --version < 1.92
-"let g:ackprg="ack-grep -H --nocolor --nogroup"    " for Debian/Ubuntu
+" Plugin: Tagbar - give focus the Tagbar when it's opened
+let g:tagbar_autofocus = 1
+" Plugin: Tagbar - keys to toggle Tagbar
+nnoremap <leader>t :TagbarToggle<CR>
 
-" Plugin: CSApprox - configuration to enable CSApprox explicitly
-"let s:use_CSApprox = 1
-" If the colorscheme does not look ok, try after uncommenting the above line
-" If that makes it worse, revert back to commented state
-
+" Set colorschemes
 if version >= 700 && &term != 'cygwin' && !has('gui_running')
   if &t_Co == 256 || &t_Co == 88
     if !has('gui') && !exists("s:use_CSApprox")
