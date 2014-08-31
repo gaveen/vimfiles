@@ -160,7 +160,7 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Hardwrap current paragraph by the value set for 'textwidth'
 nnoremap <leader>Q gwip
-" Reverse wrapping for the current paragraph
+" Un-wrap the current paragraph
 nnoremap <leader>A vipJ
 
 " Map w!! to write file with sudo, when forgot to open with sudo.
