@@ -34,6 +34,7 @@ set t_Co=256                          " assume environment can use 256 colors
 set visualbell                        " flash screen instead of beeping
 set laststatus=2                      " always show the status line
 set display+=lastline                 " show as much as possible of last line
+set completeopt-=preview              " disable preview for auto-completion
 "set cm=blowfish                       " encryption method in :X, vim -x
 "set textwidth=80                      " maximum number of characters per line
 "set colorcolumn=81                    " display a margin line
