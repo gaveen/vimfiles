@@ -90,9 +90,6 @@ setlocal ofu=syntaxcomplete#Complete  " enable syntax based word completion
 setlocal foldmethod=syntax            " folding uses syntax for folding
 setlocal nofoldenable                 " don't start with folded lines
 
-" Set the leader key
-let mapleader = ","
-
 " When the terminal supports colors, turn on...
 if &t_Co > 2 || has("gui_running")
   syntax enable                       " syntax highlighting
@@ -101,6 +98,9 @@ endif
 
 " No blinking cursor. See http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
+
+" Set the leader key
+let mapleader = ","
 
 " Function: View changes after the last save
 function! s:DiffWithSaved()
@@ -210,13 +210,19 @@ nnoremap <leader>? :DiffSaved<CR>
 " Toggle displaying non-printable characters
 nnoremap <leader>l :set list!<CR>
 
-" Strip all trailing whitespace characters in curent file
+" Toggle soft-wrap (fit text into window)
+nnoremap <leader>j= :set wrap! wrap?<CR>
+
+" Remove all trailing whitespace characters in curent file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" Hardwrap current paragraph by the value set for 'textwidth'
-nnoremap <leader>Q gwip
-" Un-wrap the current paragraph
-nnoremap <leader>A vipJ
+" Hardwrap current paragraph at value set for 'textwidth'
+" Visual mode equivalent: gq
+nnoremap <leader>gq gwap
+
+" Un-wrap current paragraph
+" Visual mode equivalent: J
+nnoremap <leader>J vipJ
 
 " Map w!! to write file with sudo, when forgot to open with sudo.
 cmap w!! w !sudo tee % >/dev/null
