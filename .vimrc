@@ -93,82 +93,6 @@ setlocal nofoldenable                 " don't start with folded lines
 " Set the leader key
 let mapleader = ","
 
-" Map F1 key to Esc
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
-" Map F4 key to toggle spell checking
-noremap <F4> :setlocal spell! spelllang=en_us<CR>
-
-" Map F7/F8 to go to previous/next buffer
-noremap <F7> :bprev<CR>
-noremap <F8> :bnext<CR>
-" Map F9 for a prompt to input the buffer number. Then hit <CR> (Enter) to jump.
-noremap <F9> :b 
-" Map F10 for a promt to input where to show a margin. Then hit <CR> to show.
-noremap <F10> :set colorcolumn=81
-" Map F12 to toggle between dark/light background
-"noremap <F12> :let &background = ( &background == "dark"? "light" : "dark"  )<CR>
-
-" Map Tab key to % (for working with matching pairs) in normal & visual modes.
-nnoremap <tab> %
-vnoremap <tab> %
-
-" Uncomment following section to stop using arrow keys (use hjkl instead).
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
-"vnoremap <up> <nop>
-"vnoremap <down> <nop>
-"vnoremap <left> <nop>
-"vnoremap <right> <nop>
-
-" Use F11 key as a shortut to toggle full screen mode in gvim.
-" Requires wmctrl and a compatible WM. When ready, uncomment following section.
-"function! ToggleFullScreen()
-"  call system("wmctrl -i -r ".v:windowid." -b toggle,fullscreen")
-"  redraw
-"endfunction
-"nnoremap <F11> :call ToggleFullScreen()<CR>
-
-" Make Y behave similar to C and D (from cursor to end of line)
-nnoremap Y y$
-
-" Map <leader>y, x and p as shortcuts for copy, cut and paste (respectively)
-" to/from system (X) clipboard when supported (Eg: gvim).
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-nnoremap <leader>x "+x
-vnoremap <leader>x "+x
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
-
-" Select the text that was just pasted
-nnoremap <leader>v `[v`]
-
-" Clear the search result highlighting
-nnoremap <leader><space> :noh<CR>
-
-" Toggle displaying non-printable characters
-nnoremap <leader>l :set list!<CR>
-
-" Strip all trailing whitespace characters in curent file
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Hardwrap current paragraph by the value set for 'textwidth'
-nnoremap <leader>Q gwip
-" Un-wrap the current paragraph
-nnoremap <leader>A vipJ
-
-" Map w!! to write file with sudo, when forgot to open with sudo.
-cmap w!! w !sudo tee % >/dev/null
-
 " When the terminal supports colors, turn on...
 if &t_Co > 2 || has("gui_running")
   syntax enable                       " syntax highlighting
@@ -178,7 +102,7 @@ endif
 " No blinking cursor. See http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
 
-" View changes after the last save
+" Function: View changes after the last save
 function! s:DiffWithSaved()
   let filetype=&ft
   diffthis
@@ -187,7 +111,12 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
-nnoremap <leader>? :DiffSaved<CR>
+
+" Function: Toggle full screen mode in gvim
+function! ToggleFullScreen()
+  call system("wmctrl -i -r ".v:windowid." -b toggle,fullscreen")
+  redraw
+endfunction
 
 " Autocommands and groups (if supported)
 if has("autocmd")
@@ -213,6 +142,83 @@ if has("autocmd")
     autocmd BufRead,BufNewFile Vagrantfile setfiletype ruby
   augroup END
 endif
+
+" Map F1 key to Esc
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Map F4 key to toggle spell checking
+noremap <F4> :setlocal spell! spelllang=en_us<CR>
+
+" Map F7/F8 to go to previous/next buffer
+noremap <F7> :bprev<CR>
+noremap <F8> :bnext<CR>
+" Map F9 for a prompt to input the buffer number. Then hit <CR> (Enter) to jump.
+noremap <F9> :b 
+
+" Map F10 for a promt to input where to show a margin. Then hit <CR> to show.
+noremap <F10> :set colorcolumn=81
+
+" Map key to function: Toggle full screen mode in gvim
+" Requires wmctrl and a compatible WM. When ready, uncomment following line.
+"nnoremap <F11> :call ToggleFullScreen()<CR>
+
+" Map F12 to toggle between dark/light background
+"noremap <F12> :let &background = ( &background == "dark"? "light" : "dark"  )<CR>
+
+" Map Tab key to % (for working with matching pairs) in normal & visual modes.
+nnoremap <tab> %
+vnoremap <tab> %
+
+" Uncomment following section to stop using arrow keys (use hjkl instead).
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+"vnoremap <up> <nop>
+"vnoremap <down> <nop>
+"vnoremap <left> <nop>
+"vnoremap <right> <nop>
+
+" Make Y behave similar to C and D (from cursor to end of line)
+nnoremap Y y$
+
+" Map <leader>y, x and p as shortcuts for copy, cut and paste (respectively)
+" to/from system (X) clipboard when supported (Eg: gvim).
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>x "+x
+vnoremap <leader>x "+x
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
+" Select the text that was just pasted
+nnoremap <leader>v `[v`]
+
+" Clear the search result highlighting
+nnoremap <leader><space> :noh<CR>
+
+" Map key to function: View changes after the last save
+nnoremap <leader>? :DiffSaved<CR>
+
+" Toggle displaying non-printable characters
+nnoremap <leader>l :set list!<CR>
+
+" Strip all trailing whitespace characters in curent file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Hardwrap current paragraph by the value set for 'textwidth'
+nnoremap <leader>Q gwip
+" Un-wrap the current paragraph
+nnoremap <leader>A vipJ
+
+" Map w!! to write file with sudo, when forgot to open with sudo.
+cmap w!! w !sudo tee % >/dev/null
 
 " Plugin: Ack - uncomment suitable line if configuration is necessary
 "let g:ackprg="ack -H --nocolor --nogroup"         " if ack --version < 1.92
@@ -281,6 +287,7 @@ let g:tagbar_autofocus = 1
 nnoremap <leader>t :TagbarToggle<CR>
 
 " Set colorschemes
+" When a colorscheme has only a GUI version, try to apply it in non-GUI Vim
 if version >= 700 && &term != 'cygwin' && !has('gui_running')
   if &t_Co == 256 || &t_Co == 88
     if !has('gui') && !exists("s:use_CSApprox")
@@ -291,8 +298,6 @@ if version >= 700 && &term != 'cygwin' && !has('gui_running')
     colorscheme default
   endif
 endif
-
-" When a colorscheme has only a GUI version, try to apply it in non-GUI Vim
 if exists('s:use_GUIColorScheme')
   runtime! bundle/plugin-guicolorscheme/plugin/guicolorscheme.vim
   GuiColorScheme nucolors
