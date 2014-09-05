@@ -42,10 +42,12 @@ the .vimrc file to understand how these are set.
   - Toggle commenting the selection:                <leader>c<space>
   - Clear highlighting the searched patterns:       <leader><space>
   - Trigger jump to word motion:                    <leader><leader>w
+  - Toggle displaying the quickfix window (coding)  <leader>q
   - Toggle displaying non-printable characters:     <leader>l
   - Remove trailing whitespaces in current file:    <leader>W
-  - Hard-wrap lines in the current paragraph:       <leader>Q
-  - Un-wrap the current paragraph:                  <leader>A
+  - Toggle soft-wrapping text (fit to screen)       <leader>j=
+  - Hard-wrap lines in the current paragraph:       <leader>gq
+  - Un-wrap the current paragraph:                  <leader>J
   - Fuzzy find pattern in files, buffers, etc.:     <ctrl>p
   - Auto-complete words [in Insert mode]:           <ctrl>n
   - Auto-complete code keywords [in Insert mode]:   <ctrl>x<ctrl>o
