@@ -113,6 +113,20 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+" Function: Toggle Quickfix window
+let g:quickfix_open = 0
+function! QuickfixToggle()
+  if g:quickfix_open
+    cclose
+    let g:quickfix_open = 0
+    execute g:quickfix_return . "wincmd w"
+  else
+    let g:quickfix_return = winnr()
+    copen
+    let g:quickfix_open = 1
+  endif
+endfunction
+
 " Function: Toggle full screen mode in gvim
 function! ToggleFullScreen()
   call system("wmctrl -i -r ".v:windowid." -b toggle,fullscreen")
@@ -206,6 +220,10 @@ nnoremap <leader><space> :noh<CR>
 
 " Map key to function: View changes after the last save
 nnoremap <leader>? :DiffSaved<CR>
+
+" Map key to function: Toggle Quickfix window.
+" When in doubt, try the shortcut twice.
+nnoremap <leader>q :call QuickfixToggle()<CR>
 
 " Toggle displaying non-printable characters
 nnoremap <leader>l :set list!<CR>
