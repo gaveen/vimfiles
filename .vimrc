@@ -109,6 +109,7 @@ function! s:DiffWithSaved()
   vnew | r # | normal! 1Gdd
   diffthis
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+  exe "normal! ]c"
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
