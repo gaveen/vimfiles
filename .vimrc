@@ -108,6 +108,8 @@ noremap <F8> :bnext<CR>
 noremap <F9> :b 
 " Map F10 for a promt to input where to show a margin. Then hit <CR> to show.
 noremap <F10> :set colorcolumn=81
+" Map F12 to toggle between dark/light background
+"noremap <F12> :let &background = ( &background == "dark"? "light" : "dark"  )<CR>
 
 " Map Tab key to % (for working with matching pairs) in normal & visual modes.
 nnoremap <tab> %
@@ -203,8 +205,10 @@ if has("autocmd")
 " Custom filetypes settings: Go, Python, Shell, C, C++, Java, JSON, Vagrant
   augroup code_langs
     autocmd!
-    autocmd FileType go set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
-    autocmd FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd FileType go
+            \ set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+    autocmd FileType python,sh,c,cpp,h,java
+            \ set tabstop=4 shiftwidth=4 softtabstop=4
     autocmd BufRead,BufNewFile *.json setfiletype javascript
     autocmd BufRead,BufNewFile Vagrantfile setfiletype ruby
   augroup END
@@ -238,8 +242,8 @@ if has("autocmd")
   augroup plugin_go
     autocmd!
     autocmd FileType go nmap <leader>gb <Plug>(go-build)
-    autocmd FileType go nmap <leader>gf <Plug>(go-def-split)
-    autocmd FileType go nmap <leader>gd <Plug>(go-doc)
+    autocmd FileType go nmap <leader>gd <Plug>(go-def-split)
+    autocmd FileType go nmap <leader>gh <Plug>(go-doc)
     autocmd FileType go nmap <leader>gi <Plug>(go-info)
     autocmd FileType go nmap <leader>gr <Plug>(go-run)
     autocmd FileType go nmap <leader>gt <Plug>(go-test)
