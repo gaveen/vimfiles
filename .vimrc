@@ -71,6 +71,7 @@ Plugin 'scrooloose/nerdtree',               {'name': 'plugin-nerdtree'}
 Plugin 'vim-pandoc/vim-pandoc',             {'name': 'plugin-pandoc'}
 Plugin 'vim-pandoc/vim-pandoc-syntax',      {'name': 'plugin-pandoc_syntax'}
 Plugin 'rodjek/vim-puppet',                 {'name': 'plugin-puppet'}
+Plugin 'rust-lang/rust.vim',                {'name': 'plugin-rust'}
 Plugin 'scratch.vim',                       {'name': 'plugin-scratch'}
 Plugin 'tpope/vim-surround',                {'name': 'plugin-surround'}
 Plugin 'godlygeek/tabular',                 {'name': 'plugin-tabular'}
