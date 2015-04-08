@@ -264,6 +264,9 @@ let g:buftabs_marker_modified = " *"
 " If the colorscheme does not look ok, try after uncommenting the above line
 " If that makes it worse, revert back to commented state
 
+" Plugin: EasyMotion - enable smartcase
+let g:EasyMotion_smartcase = 1
+
 " Plugin: Go - disable auto-downloading go binaries
 let g:go_disable_autoinstall = 1
 " Advanced features of vim-go depends on external binaries. To have
