@@ -231,10 +231,10 @@ vnoremap <leader>p "+p
 nnoremap <leader>v `[v`]
 
 " Input the buffer number and hit <CR> (Enter) to jump to the buffer
-nnoremap <leader>bd :bp <BAR> bd #<CR>
+nnoremap <leader>bg :b 
 
 " Delete (close) the current buffer and jump to the previous buffer
-nnoremap <leader>bg :b 
+nnoremap <leader>bd :bp <BAR> bd #<CR>
 
 " Clear the search result highlighting
 nnoremap <leader>/ :noh<CR>
