@@ -24,7 +24,7 @@ the .vimrc file to understand how these are set.
       Go to next buffer:                            <F8>
       Trigger jump to buffer:                       <F9>
       Trigger show a margin:                        <F10>
-      Toggle fullscreen in gvim (default: disabled) <F11>
+      Toggle fullscreen in gvim (if supported)      <F11>
     Shortcuts F9, F10 require an input before <CR>
   - Shortcuts for system clipboard operations
     in setups which support them
@@ -32,15 +32,17 @@ the .vimrc file to understand how these are set.
       Copy to clipboard:                            <leader>y
       Cut to clipboard:                             <leader>x
       Paste from clipboard:                         <leader>p
+  - Shortcuts for buffer-related workflow
+      Trigger jump to buffer:                       <leader>bg
+      Close buffer and jump to previous onw:        <leader>bd
   - Select the text that was just pasted            <leader>v
   - Save a file with 'sudo' privileges:             :w!!
   - Compare the changes since the last save:        <leader>?
   - Toggle directory tree pane:                     <leader>d
   - Toggle tagbar pane:                             <leader>t
   - Toggle temporary jotting area (not saved):      <leader>s
-  - See and manage all open buffers:                <leader>be
   - Toggle commenting the selection:                <leader>c<space>
-  - Clear highlighting the searched patterns:       <leader><space>
+  - Clear highlighting the searched patterns:       <leader>/
   - Trigger jump to word motion:                    <leader><leader>w
   - Toggle displaying the quickfix window (coding)  <leader>q
   - Toggle displaying non-printable characters:     <leader>l
@@ -61,18 +63,15 @@ the .vimrc file to understand how these are set.
   - Better text aligning support. For examples, see:
       http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
   - Use _ and + keys to increase and decrease selection blocks
-  - Default to use 2 spaces instead of tab character
-      Exceptions configured for: go, python, shell, c, c++, java
+  - Default to use 4 spaces instead of tab character
+      Exceptions configured for: go, ruby
   - Show non printable characters such as: tab, trailing spaces
   - List and indicate open/active buffers in the bottom status bar
   - Advanced support for Go, Puppet, Pandoc, etc.
       vim-go depends on external downloads. Check .vimrc for details.
       For examples, see: https://github.com/fatih/vim-go
-  - Advanced support for Git via fugitive and gitv plugins
-  - Disabled (by default) shortcut for full screen gvim if supported
   - Patterns are case insensitive when uppercase letters are not used
   - Flash the screen to notify instead of making a sound
-  - Try to approximate your colorscheme when it's not natively supported
   - A few decent colorschemes to choose from (both dark and light)
 
 

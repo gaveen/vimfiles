@@ -1,40 +1,27 @@
 Vimfiles
 ========
 
-My current vimfiles. Plugins are managed with Vundle.
+My current vimfiles. Plugins are managed with vim-plug.
 
 This is not intended as a distribution, as I may change it depending
-on the work I'm doing. And I only use it under Linux.
+on the work I'm doing. Plus I only get to use this under Linux.
 
-But you are welcome to use my .vimrc to create your own. I've tried to
-keep .vimrc commented and keep my tweaks not-breaking the vim-way of
-doing things.
-
-My *old* (unmaintained) vimfiles: https://github.com/gaveen/gavim
-
+But you are welcome to use my .vimrc to explore vim features. I've
+tried to keep the .vimrc file well commented and keep my tweaks
+as not-breaking-the-vim-way-of-doing-things as possible.
 
 How to setup
 ------------
-1. Clone this repository from GitHub.
-    $ git clone https://github.com/gaveen/vimfiles.git
-2. Update submodules (to fetch Vundle)
-    $ cd vimfiles/
-    $ git submodule update --init
-3. Link the cloned .vim and .vimrc to home directory
+1. Clone this repository from GitHub to a suitable place
+    e.g., $ git clone https://github.com/gaveen/vimfiles.git
+2. Link the .vim and .vimrc from the clone copy to home directory
     e.g., assuming the cloned repo is ~/Apps/vimfiles
           $ ln -s ~/Apps/vimfiles/.vim ~/.vim
           $ ln -s ~/Apps/vim/.vimrc ~/.vimrc
-4. Launch vim, and in normal mode, enter :PluginInstall
-
-5. To update plugins when needed, run :PluginUpdate
-
-
-Quick setup
------------
-Alternatively, you can download: http://is.gd/gaveen_vimfiles
-
-If you can't use the earlier method, get above archive (.tar.xz format),
-extract, and follow only the above step 3.
+3. Launch vim, and update the plugins
+    e.g., to upgrade vim-plug itself use :PlugUpgrade
+          to install plugins first time or update them later
+          :PlugUpdate
 
 
 Requirements
@@ -42,9 +29,9 @@ Requirements
 - vim and/or gvim (version 7.3 or higher)
     Package: Fedora family => vim-enhanced / vim-X11,
              Debian family => vim / vim-gnome
-- git (not-needed during quick setup)
+- git (to install and update plugins)
     Package: Fedora family => git, Debian family => git-core
-- Internet connectivity (not-needed during quick setup)
+- Internet connectivity (to install and update plugins)
 
 
 Optional
@@ -56,7 +43,7 @@ Optional
     Package: Fedora family => ctags, Debian family => exuberant-ctags
 - mercurial - to auto-fetch binary dependencies for plugin-go (vim-go)
     Package: Fedora family => mercurial, Debian family => mercurial
-    if you want to auto-fetch binaries, comment necessary line in vimrc
+    if you want to fetch binaries, comment necessary line in vimrc
 - wmctrl - if you want to use gvim in a full screen mode
     Package: Fedora family => wmctrl, Debian family => wmctrl
     if your window manager supports this, uncomment necessary lines
