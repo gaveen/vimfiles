@@ -45,48 +45,6 @@ set guioptions-=m                     " no menubar in gvim
 set guioptions-=r                     " no right scrollbar in gvim
 set guioptions-=L                     " no left scrollbar when v.split in gvim
 
-" Settings for Vundle
-filetype off                          " disable filetype use. Enabled later
-set rtp+=~/.vim/bundle/plugin-vundle  " Vundle runtime path
-call vundle#begin()                   " start Vundle definitions
-
-" Plugins to use
-Plugin 'gmarik/Vundle.vim',                 {'name': 'plugin-vundle'}
-Plugin 'mileszs/ack.vim',                   {'name': 'plugin-ack'}
-Plugin 'jiangmiao/auto-pairs',              {'name': 'plugin-auto_pairs'}
-Plugin 'jlanzarotta/bufexplorer',           {'name': 'plugin-bufexplorer'}
-Plugin 'buftabs',                           {'name': 'plugin-buftabs'}
-Plugin 'godlygeek/csapprox',                {'name': 'plugin-csapprox'}
-Plugin 'kien/ctrlp.vim',                    {'name': 'plugin-ctrlp'}
-Plugin 'honza/dockerfile.vim',              {'name': 'plugin-docker'}
-Plugin 'Lokaltog/vim-easymotion',           {'name': 'plugin-easymotion'}
-Plugin 'terryma/vim-expand-region',         {'name': 'plugin-expand_region'}
-Plugin 'tpope/vim-fugitive',                {'name': 'plugin-fugitive'}
-Plugin 'gregsexton/gitv',                   {'name': 'plugin-gitv'}
-Plugin 'fatih/vim-go',                      {'name': 'plugin-go'}
-Plugin 'guicolorscheme.vim',                {'name': 'plugin-guicolorscheme'}
-Plugin 'matchit.zip',                       {'name': 'plugin-matchit'}
-Plugin 'scrooloose/nerdcommenter',          {'name': 'plugin-nerdcommenter'}
-Plugin 'scrooloose/nerdtree',               {'name': 'plugin-nerdtree'}
-Plugin 'vim-pandoc/vim-pandoc',             {'name': 'plugin-pandoc'}
-Plugin 'vim-pandoc/vim-pandoc-syntax',      {'name': 'plugin-pandoc_syntax'}
-Plugin 'rodjek/vim-puppet',                 {'name': 'plugin-puppet'}
-Plugin 'rust-lang/rust.vim',                {'name': 'plugin-rust'}
-Plugin 'scratch.vim',                       {'name': 'plugin-scratch'}
-Plugin 'tpope/vim-surround',                {'name': 'plugin-surround'}
-Plugin 'godlygeek/tabular',                 {'name': 'plugin-tabular'}
-Plugin 'majutsushi/tagbar',                 {'name': 'plugin-tagbar'}
-
-" Colorschemes to use (in addition to ones in .vim/colors)
-Plugin 'chriskempson/base16-vim',           {'name': 'color-base16'}
-Plugin 'nanotech/jellybeans.vim',           {'name': 'color-jellybeans'}
-Plugin 'tomasr/molokai',                    {'name': 'color-molokai'}
-Plugin 'jpo/vim-railscasts-theme',          {'name': 'color-railscasts'}
-Plugin 'altercation/vim-colors-solarized',  {'name': 'color-solarized'}
-
-call vundle#end()                     " end Vundle definitions
-filetype plugin indent on             " enable filetype use
-
 setlocal ofu=syntaxcomplete#Complete  " enable syntax based word completion
 setlocal foldmethod=syntax            " folding uses syntax for folding
 setlocal nofoldenable                 " don't start with folded lines
