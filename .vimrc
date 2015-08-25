@@ -231,9 +231,14 @@ vnoremap <leader>p "+p
 " Select the text that was just pasted
 nnoremap <leader>v `[v`]
 
-" Input the buffer number and hit <CR> (Enter) to jump to the buffer
+" List buffers
+nnoremap <leader>bl :ls<CR>
+" Jump to given buffer number (after entering number hitting 'Enter')
 nnoremap <leader>bg :b 
-
+" Go to previous buffer
+nnoremap <leader>bv :bp<CR>
+" Go to next buffer
+nnoremap <leader>bn :bn<CR>
 " Delete (close) the current buffer and jump to the previous buffer
 nnoremap <leader>bd :bp <BAR> bd #<CR>
 
