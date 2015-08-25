@@ -90,6 +90,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " To: Augment filetype handling and syntax highlighting
 Plug 'fatih/vim-go',                  {'for': 'go'}
+Plug 'ekalinin/Dockerfile.vim',       {'for': 'Dockerfile'}
 Plug 'vim-pandoc/vim-pandoc-syntax',  {'for': 'pandoc'}
                                       \ | Plug 'vim-pandoc/vim-pandoc'
 Plug 'rodjek/vim-puppet',             {'for': 'puppet'}
