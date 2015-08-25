@@ -196,12 +196,6 @@ vnoremap <F1> <ESC>
 " Map F4 key to toggle spell checking
 noremap <F4> :setlocal spell! spelllang=en_us<CR>
 
-" Map F7/F8 to go to previous/next buffer
-noremap <F7> :bp<CR>
-noremap <F8> :bn<CR>
-" Map F9 for a prompt to input the buffer number. Then hit <CR> (Enter) to jump.
-noremap <F9> :b 
-
 " Map F10 for a promt to input where to show a margin. Then hit <CR> to show.
 noremap <F10> :set colorcolumn=81
 

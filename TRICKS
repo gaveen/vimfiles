@@ -30,7 +30,7 @@ the .vimrc file to understand how these are set.
       Cut to clipboard:                             <leader>x
       Paste from clipboard:                         <leader>p
   - Shortcuts for buffer-related workflow
-      List buffers:                                 <leader>ls
+      List buffers:                                 <leader>bl
       Trigger jump to buffer:                       <leader>bg
       Go to previous buffer:                        <leader>bv
       Go to next buffer:                            <leader>bn
