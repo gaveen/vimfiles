@@ -20,9 +20,6 @@ the .vimrc file to understand how these are set.
       Toggle spell checking (default lang: en_US):  <F4>
       Apply main color scheme:                      <F5>
       Apply alternative color scheme:               <F6>
-      Go to previous buffer:                        <F7>
-      Go to next buffer:                            <F8>
-      Trigger jump to buffer:                       <F9>
       Trigger show a margin:                        <F10>
       Toggle fullscreen in gvim (if supported)      <F11>
     Shortcuts F9, F10 require an input before <CR>
@@ -33,7 +30,10 @@ the .vimrc file to understand how these are set.
       Cut to clipboard:                             <leader>x
       Paste from clipboard:                         <leader>p
   - Shortcuts for buffer-related workflow
+      List buffers:                                 <leader>ls
       Trigger jump to buffer:                       <leader>bg
+      Go to previous buffer:                        <leader>bv
+      Go to next buffer:                            <leader>bn
       Close buffer and jump to previous onw:        <leader>bd
   - Select the text that was just pasted            <leader>v
   - Save a file with 'sudo' privileges:             :w!!
