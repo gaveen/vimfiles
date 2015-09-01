@@ -78,6 +78,7 @@ Plug 'tpope/vim-surround'
 
 " To: Augment UI elements
 Plug 'buftabs'
+Plug 'junegunn/limelight.vim',        {'on': 'Limelight'}
 Plug 'scrooloose/nerdtree',           {'on': 'NERDTreeToggle'}
 Plug 'mtth/scratch.vim',              {'on': 'Scratch'}
 Plug 'majutsushi/tagbar',             {'on': 'TagbarToggle'}
@@ -195,6 +196,9 @@ vnoremap <F1> <ESC>
 
 " Map F4 key to toggle spell checking
 noremap <F4> :setlocal spell! spelllang=en_us<CR>
+
+" Map F7 to toggle focus-highlighting
+noremap <F7> :Limelight!!<CR>
 
 " Map F10 for a promt to input where to show a margin. Then hit <CR> to show.
 noremap <F10> :set colorcolumn=81
