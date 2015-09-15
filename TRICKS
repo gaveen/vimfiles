@@ -68,7 +68,7 @@ the .vimrc file to understand how these are set.
       Exceptions configured for: go, ruby
   - Show non printable characters such as: tab, trailing spaces
   - List and indicate open/active buffers in the bottom status bar
-  - Advanced support for Go, Puppet, Pandoc, etc.
+  - Advanced support for Git, Go, Puppet, Pandoc, etc.
       vim-go depends on external downloads. Check .vimrc for details.
       For examples, see: https://github.com/fatih/vim-go
   - Patterns are case insensitive when uppercase letters are not used

@@ -86,6 +86,7 @@ Plug 'majutsushi/tagbar',             {'on': 'TagbarToggle'}
 " To: Add utility
 Plug 'mileszs/ack.vim',               {'on': 'Ack'}
 Plug 'ctrlpvim/ctrlp.vim',            {'on': 'CtrlP'}
+Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular',             {'on': 'Tabularize'}
 Plug 'scrooloose/nerdcommenter'
 
