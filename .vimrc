@@ -97,7 +97,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax',  {'for': 'pandoc'}
                                       \ | Plug 'vim-pandoc/vim-pandoc'
 Plug 'rodjek/vim-puppet',             {'for': 'puppet'}
 Plug 'rust-lang/rust.vim',            {'for': 'rust'}
-"Plug 'phildawes/racer',               {'for': 'rust'}
+"Plug 'racer-rust/vim-racer',          {'for': 'rust'}
 
 " To: Add colorschemes (in addition to ones in .vim/colors)
 Plug 'chriskempson/base16-vim'
@@ -319,6 +319,12 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 
 " Plugin: Pandoc - no folding by default
 let g:pandoc_no_folding = 1
+
+" Plugin: Racer - environment configuration for Rust auto-completion
+" Requires a working: https://github.com/phildawes/racer
+" When ready, uncomment the following, use Ctrl+x-Ctrl+o to complete
+"let g:racer_cmd = "/path/to/racer/target/release/racer"
+"let $RUST_SRC_PATH="/path/to/rustc-1.2.0/src"
 
 " Plugin: Scratch - keys to open temporary Scratch buffer
 nnoremap <leader>s :Scratch<CR>
