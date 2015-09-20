@@ -321,8 +321,12 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 let g:pandoc_no_folding = 1
 
 " Plugin: Racer - environment configuration for Rust auto-completion
-" Requires a working: https://github.com/phildawes/racer
-" When ready, uncomment the following, use Ctrl+x-Ctrl+o to complete
+" Usage:  Press Ctrl+x Ctrl+o in Insert mode to get the completion
+" Setup:  1. Build Racer. See https://github.com/phildawes/racer
+"         2. Uncomment plugin definition for 'vim-racer' above,
+"            save, and run :PlugUpdate
+"         3. Finally, replace '/path/to' with the two actual paths
+"            below and uncomment those lines
 "let g:racer_cmd = "/path/to/racer/target/release/racer"
 "let $RUST_SRC_PATH="/path/to/rustc-1.2.0/src"
 
