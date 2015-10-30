@@ -328,7 +328,7 @@ let g:pandoc_no_folding = 1
 "         3. Finally, replace '/path/to' with the two actual paths
 "            below and uncomment those lines
 "let g:racer_cmd = "/path/to/racer/target/release/racer"
-"let $RUST_SRC_PATH="/path/to/rustc-1.2.0/src"
+"let $RUST_SRC_PATH="/path/to/rustc-1.4.0/src"
 
 " Plugin: Scratch - keys to open temporary Scratch buffer
 nnoremap <leader>s :Scratch<CR>
