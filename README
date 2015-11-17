@@ -26,9 +26,9 @@ How to setup
 
 Requirements
 ------------
-- vim and/or gvim (version 7.3 or higher)
-    Package: Fedora family => vim-enhanced / vim-X11,
-             Debian family => vim / vim-gnome
+- Preferred flavor(s) of vim, gvim and nvim (try the latest version)
+    Package: Fedora family => vim-enhanced / vim-X11 / neovim,
+             Debian family => vim / vim-gnome / neovim
 - git (to install and update plugins)
     Package: Fedora family => git, Debian family => git-core
 - Internet connectivity (to install and update plugins)
@@ -36,14 +36,19 @@ Requirements
 
 Optional
 --------
-- ack - a better grep alternative if you plan to use :Ack
+- ack - a better alternative to grep if you plan to use :Ack
     Package: Fedora family => ack, Debian family => ack-grep
-    if you use a Debian family OS, uncomment necessary line in vimrc
+- silver searcher - a faster alternative to ack (can be used with :Ack)
+    Package: Fedora => the_silver_searcher, Debian => silversearcher-ag
+    if you want to use ag instead of ack, or use a Debian family OS,
+    uncomment relevant line in vimrc
 - exuberant ctags - to use the tagbar feature
     Package: Fedora family => ctags, Debian family => exuberant-ctags
 - mercurial - to auto-fetch binary dependencies for plugin-go (vim-go)
     Package: Fedora family => mercurial, Debian family => mercurial
     if you want to fetch binaries, comment necessary line in vimrc
+- racer - to use advanced code completion for Rust using Racer
+    if you want to use vim-racer plugin, see the instructions in vimrc
 - wmctrl - if you want to use gvim in a full screen mode
     Package: Fedora family => wmctrl, Debian family => wmctrl
     if your window manager supports this, uncomment necessary lines

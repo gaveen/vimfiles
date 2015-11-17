@@ -48,7 +48,6 @@ set ttyfast                           " assume the terminal is fast
 set mouse=a                           " enable mouse in all modes
 
 " Settings that can can affect content
-"set cm=blowfish                       " encryption method in :X, vim -x
 "set textwidth=80                      " set max number of characters per line
 
 " Tweak how Gvim looks
@@ -270,8 +269,9 @@ nnoremap <leader>J vipJ
 " Map w!! to write file with sudo, when forgot to open with sudo.
 cmap w!! w !sudo tee % >/dev/null
 
-" Plugin: Ack - uncomment suitable line if configuration is necessary
-"let g:ackprg="ack-grep -H --nocolor --nogroup"    " for Debian/Ubuntu
+" Plugin: Ack - uncomment one of the following suitable line if is necessary
+"let g:ackprg = "ag --vimgrep"                     " use Silver Searcher or
+"let g:ackprg = "ack-grep -H --nocolor --nogroup"  " for Debian/Ubuntu
 " Plugin: Ack - keys for a prompt to input pattern. Then hit <CR> (Enter).
 nnoremap <leader>a :Ack 
 
@@ -328,7 +328,7 @@ let g:pandoc_no_folding = 1
 "         3. Finally, replace '/path/to' with the two actual paths
 "            below and uncomment those lines
 "let g:racer_cmd = "/path/to/racer/target/release/racer"
-"let $RUST_SRC_PATH="/path/to/rustc-1.4.0/src"
+"let $RUST_SRC_PATH="/path/to/rustc/src"
 
 " Plugin: Scratch - keys to open temporary Scratch buffer
 nnoremap <leader>s :Scratch<CR>
