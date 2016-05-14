@@ -322,12 +322,12 @@ let g:pandoc_no_folding = 1
 
 " Plugin: Racer - environment configuration for Rust auto-completion
 " Usage:  Press Ctrl+x Ctrl+o in Insert mode to get the completion
-" Setup:  1. Build Racer. See https://github.com/phildawes/racer
+" Setup:  1. Install Racer. See https://github.com/phildawes/racer
 "         2. Uncomment plugin definition for 'vim-racer' above,
 "            save, and run :PlugUpdate
 "         3. Finally, replace '/path/to' with the two actual paths
 "            below and uncomment those lines
-"let g:racer_cmd = "/path/to/racer/target/release/racer"
+"let g:racer_cmd = "/path/to/.cargo/bin/racer"
 "let $RUST_SRC_PATH="/path/to/rustc/src"
 
 " Plugin: Scratch - keys to open temporary Scratch buffer
