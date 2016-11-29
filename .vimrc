@@ -106,7 +106,8 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Wutzara/vim-materialtheme'
 Plug 'tomasr/molokai'
-Plug 'mhumeSF/one-dark.vim'
+Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'altercation/vim-colors-solarized'
@@ -208,7 +209,7 @@ noremap <F10> :set colorcolumn=81
 nnoremap <F11> :call ToggleFullScreen()<CR>
 
 " Map F12 to toggle between dark/light background
-"noremap <F12> :let &background = ( &background == "dark"? "light" : "dark"  )<CR>
+noremap <F12> :let &background = ( &background == "dark"? "light" : "dark"  )<CR>
 
 " Map Tab key to % (for working with matching pairs) in normal & visual modes.
 nnoremap <tab> %
@@ -337,7 +338,7 @@ nnoremap <leader>s :Scratch<CR>
 let g:tagbar_autofocus = 1
 " Plugin: Tagbar - keys to toggle Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
-" Plugin: Tagbar - Support for Rust, Puppet (Depends on: ~/.ctags file)
+" Plugin: Tagbar - Support for Rust, Puppet, Makefile (Depends on: ~/.ctags)
 " Additional details available at https://github.com/majutsushi/tagbar/wiki
 "let g:tagbar_type_rust = {
   "\ 'ctagstype' : 'rust',
@@ -361,10 +362,19 @@ nnoremap <leader>t :TagbarToggle<CR>
     "\'d:definition'
   "\]
 "\}
+"let g:tagbar_type_make = {
+  "\ 'kinds':[
+    "\ 'm:macros',
+    "\ 't:targets'
+  "\]
+"\}
 
 " Set colorschemes
-"set background=dark
-"colorscheme hybrid_material
 colorscheme spacegray
-noremap <F5> <Esc>:colorscheme hybrid_material<CR>
-noremap <F6> <Esc>:colorscheme Tomorrow-Night<CR>
+"if has('gui_running')
+  "set background=dark
+  "colorscheme one
+"else
+  "set background=dark
+  "colorscheme hybrid_material
+"endif
