@@ -198,6 +198,12 @@ vnoremap <F1> <ESC>
 " Map F4 key to toggle spell checking
 noremap <F4> :setlocal spell! spelllang=en_us<CR>
 
+" Map F5 key to change font in gvim
+"noremap <F5> :set guifont=Inconsolata\ Medium\ 11<CR>
+
+" Map F6 key to change font in gvim
+"noremap <F6> :set guifont=Courier\ 10\ Pitch\ 12<CR>
+
 " Map F7 to toggle focus-highlighting
 noremap <F7> :Limelight!!<CR>
 
