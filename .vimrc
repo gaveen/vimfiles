@@ -72,11 +72,11 @@ call plug#begin('~/.vim/bundle')
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-expand-region'
-Plug 'matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-surround'
 
 " To: Augment UI elements
-Plug 'buftabs'
+Plug 'vim-scripts/buftabs'
 Plug 'junegunn/limelight.vim',        {'on': 'Limelight'}
 Plug 'scrooloose/nerdtree',           {'on': 'NERDTreeToggle'}
 Plug 'mtth/scratch.vim',              {'on': 'Scratch'}
