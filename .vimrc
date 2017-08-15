@@ -13,7 +13,6 @@ set autoread                          " reload file if changed outside vim
 set autowrite                         " save file on some commands
 set scrolloff=1                       " minimal no. of lines around cursor
 set t_Co=256                          " assume environment can use 256 colors
-set visualbell                        " flash screen instead of beeping
 set laststatus=2                      " always show the status line
 set display+=lastline                 " show as much as possible of last line
 set completeopt-=preview              " disable preview for auto-completion
