@@ -27,9 +27,9 @@ set smarttab                          " smart tabulation and backspace
 set bs=indent,eol,start               " allow backspacing over everything
 
 " How Search behaves
+"set ignorecase                        " assume patterns are case insensitive,...
+set smartcase                         " ...when lowercase-only is used
 set incsearch                         " start searching as you type
-set ignorecase                        " assume patterns are case insensitive,...
-set smartcase                         " when lowercase-only is used
 
 " How non-printable things are shown
 set list                              " show non-print characters,...
@@ -205,6 +205,9 @@ noremap <F4> :setlocal spell! spelllang=en_us<CR>
 
 " Map F7 to toggle focus-highlighting
 noremap <F7> :Limelight!!<CR>
+
+" Map F8 to toggle pattern scase-sensitivity (when uppercase are not used)
+noremap <F8> :set ignorecase<CR>
 
 " Map F10 for a promt to input where to show a margin. Then hit <CR> to show.
 noremap <F10> :set colorcolumn=81
