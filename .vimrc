@@ -50,7 +50,7 @@ set mouse=a                           " enable mouse in all modes
 "set textwidth=80                      " set max number of characters per line
 
 " Tweak how Gvim looks
-"set guifont=Inconsolata\ Medium\ 11   " set font in gvim
+"set guifont=Inconsolata-g\ Medium\ 11 " set font in gvim
 set guioptions-=T                     " no toolbar in gvim
 set guioptions-=m                     " no menubar in gvim
 set guioptions-=r                     " no right scrollbar in gvim
@@ -76,6 +76,7 @@ Plug 'tpope/vim-surround'
 
 " To: Augment UI elements
 Plug 'vim-scripts/buftabs'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/limelight.vim',        {'on': 'Limelight'}
 Plug 'scrooloose/nerdtree',           {'on': 'NERDTreeToggle'}
 Plug 'mtth/scratch.vim',              {'on': 'Scratch'}
@@ -198,7 +199,7 @@ vnoremap <F1> <ESC>
 noremap <F4> :setlocal spell! spelllang=en_us<CR>
 
 " Map F5 key to change font in gvim
-"noremap <F5> :set guifont=Inconsolata\ Medium\ 11<CR>
+"noremap <F5> :set guifont=Inconsolata-g\ Medium\ 11<CR>
 
 " Map F6 key to change font in gvim
 "noremap <F6> :set guifont=Courier\ 10\ Pitch\ 12<CR>
@@ -309,9 +310,10 @@ if has("autocmd")
   augroup END
 endif
 
-" Plugin: LaTeX - configuration (plugin not bundled here)
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
+" Plugin: Lightline - configuration
+"let g:lightline = {
+      "\ 'colorscheme': 'one',
+      "\ }
 
 " Plugin: NERDTree - use colors, cursorline and return/enter key
 let NERDTreeHijackNetrw = 0
