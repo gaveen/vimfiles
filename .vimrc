@@ -82,11 +82,11 @@ Plug 'mtth/scratch.vim',              {'on': 'Scratch'}
 Plug 'majutsushi/tagbar',             {'on': 'TagbarToggle'}
 
 " To: Add utility
-Plug 'mileszs/ack.vim',               {'on': 'Ack'}
 Plug 'ctrlpvim/ctrlp.vim',            {'on': 'CtrlP'}
 Plug 'tpope/vim-fugitive'
-Plug 'godlygeek/tabular',             {'on': 'Tabularize'}
+Plug 'yegappan/grep',                 {'on': ['Grep', 'Rg']}
 Plug 'scrooloose/nerdcommenter'
+Plug 'godlygeek/tabular',             {'on': 'Tabularize'}
 
 " To: Augment filetype handling and syntax highlighting
 Plug 'fatih/vim-go',                  {'for': 'go'}
@@ -277,12 +277,6 @@ nnoremap <leader>J vipJ
 
 " Map w!! to write file with sudo, when forgot to open with sudo.
 cmap w!! w !sudo tee % >/dev/null
-
-" Plugin: Ack - uncomment one of the following suitable line if is necessary
-"let g:ackprg = "ag --vimgrep"                     " use Silver Searcher or
-"let g:ackprg = "ack-grep -H --nocolor --nogroup"  " for Debian/Ubuntu
-" Plugin: Ack - keys for a prompt to input pattern. Then hit <CR> (Enter).
-nnoremap <leader>a :Ack 
 
 " Plugin: Auto Pairs - key to toggle auto-complete
 let g:AutoPairsShortcutToggle = '<F3>'
