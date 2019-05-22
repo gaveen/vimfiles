@@ -374,9 +374,10 @@ nnoremap <leader>t :TagbarToggle<CR>
 "\}
 
 " Set colorschemes
-set termguicolors
-set background=dark
-colorscheme one
+"set termguicolors
+"set background=dark
+"colorscheme one
+colorscheme spacegray
 
 "if has('gui_running')
   "set background=dark
