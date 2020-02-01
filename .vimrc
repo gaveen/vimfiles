@@ -96,6 +96,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax',  {'for': 'pandoc'}
                                       \ | Plug 'vim-pandoc/vim-pandoc'
 Plug 'rodjek/vim-puppet',             {'for': 'puppet'}
 Plug 'rust-lang/rust.vim',            {'for': 'rust'}
+Plug 'cespare/vim-toml',              {'for': 'toml'}
 "Plug 'racer-rust/vim-racer',          {'for': 'rust'}
 
 " To: Add colorschemes (in addition to ones in .vim/colors)
