@@ -113,6 +113,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'lifepillar/vim-gruvbox8'
 
 " End vim-plug definitions
 call plug#end()
