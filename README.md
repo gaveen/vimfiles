@@ -2,9 +2,7 @@
 
 This is my current [vimfiles](https://gaveen.me/2020/02/my-vim-story/). Plugins are managed with [`vim-plug`](https://github.com/junegunn/vim-plug). These should work with vim/gvim and neovim.
 
-This is not intended as a distribution, as I may change it depending on the work I'm doing. Plus I only get to use this under Linux.
-
-But, you are more than welcome to use my vim files to explore. I have tried to keep my `.vimrc` file well commended.
+This is not intended as a distribution, as I may change it depending on the work I'm doing. Plus, I pretty much only use this under Linux. But, you are more than welcome to use my vim files to explore. I have tried to keep my `.vimrc` file well commended for your convenience.
 
 &nbsp;  
 
