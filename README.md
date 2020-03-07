@@ -19,9 +19,7 @@ Then, you could create symbolic links to the `.vim` directory and `.vimrc` file.
 `$ ln -s ~/Apps/vim/.vimrc ~/.vimrc`
 
 Finally, launch vim and install the plugins. (_Note:_ `:PlugUpgrade` will update vim-plug itself)&nbsp;  
-`:PlugUpdate` will install/update plugins&nbsp;  
-
-&nbsp;  
+`:PlugUpdate` will install/update plugins
 
 ### Dependencies
 - `git`: used by `vim-plug` to keep plugins up-to-date
@@ -82,7 +80,7 @@ Clipboard Shortcut* | Action
 `<leader>y` | Copy to clipboard
 `<leader>x` | Cut to clipboard
 `<leader>p` | Paste from clipboard
-* | _Only on supported systems_
+`*` | _Only on supported systems_
 
 &nbsp;  
 
@@ -129,7 +127,7 @@ Insert Mode Shortcut* | Action
 --------------------- | ------
 `<ctrl>n` | Auto-complete words repeating words
 `<ctrl>x<ctrl>o` | Auto-complete code keywords
-* | _Entered while in Insert Mode_
+`*` | _Entered while in Insert Mode_
 
 &nbsp;  
 
@@ -137,7 +135,7 @@ Here are some other useful things enabled for you.
 - Automatic completion of matching pairs (e.g., `()`, `[]`, `{}`, `''`, `""`, etc.)
 - Auto-editing of matching pairs (For examples, see: [tpope/vim-surround](https://github.com/tpope/vim-surround))
 - Use _ and + keys to increase and decrease the range of text selection blocks
-- Better text aligning support (For examples, see: [Vimcasts - Tabular](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/))
+- Better text aligning support (For examples, see: [Vimcasts - Aligning text with Tabular.vim](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/))
 - Show non printable characters such as: tab, trailing spaces
 - List and indicate open/active buffers in the bottom status bar
 
