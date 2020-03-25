@@ -16,6 +16,7 @@ set t_Co=256                          " assume environment can use 256 colors
 set laststatus=2                      " always show the status line
 set display+=lastline                 " show as much as possible of last line
 set completeopt-=preview              " disable preview for auto-completion
+set noshowmode                        " don't indicate mode (shown elsewhere)
 "set colorcolumn=81                    " display a margin line
 
 " How Tab behaves
@@ -90,17 +91,17 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'godlygeek/tabular',             {'on': 'Tabularize'}
 
 " To: Augment filetype handling and syntax highlighting
-Plug 'fatih/vim-go',                  {'for': 'go'}
 Plug 'ekalinin/Dockerfile.vim',       {'for': 'Dockerfile'}
+Plug 'fatih/vim-go',                  {'for': 'go', 'do': ':GoInstallBinaries'}
 Plug 'vim-pandoc/vim-pandoc-syntax',  {'for': 'pandoc'}
                                       \ | Plug 'vim-pandoc/vim-pandoc'
 Plug 'rodjek/vim-puppet',             {'for': 'puppet'}
 Plug 'rust-lang/rust.vim',            {'for': 'rust'}
 Plug 'cespare/vim-toml',              {'for': 'toml'}
-"Plug 'racer-rust/vim-racer',          {'for': 'rust'}
 
 " To: Add colorschemes (in addition to ones in .vim/colors)
 Plug 'chriskempson/base16-vim'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'nielsmadan/harlequin'
 Plug 'w0ng/vim-hybrid'
 Plug 'kristijanhusak/vim-hybrid-material'
@@ -113,7 +114,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'lifepillar/vim-gruvbox8'
 
 " End vim-plug definitions
 call plug#end()
@@ -327,16 +327,6 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " Plugin: Pandoc - no folding by default
 let g:pandoc_no_folding = 1
 
-" Plugin: Racer - environment configuration for Rust auto-completion
-" Usage:  Press Ctrl+x Ctrl+o in Insert mode to get the completion
-" Setup:  1. Install Racer. See https://github.com/phildawes/racer
-"         2. Uncomment plugin definition for 'vim-racer' above,
-"            save, and run :PlugUpdate
-"         3. Finally, replace '/path/to' with the two actual paths
-"            below and uncomment those lines
-"let g:racer_cmd = "/path/to/.cargo/bin/racer"
-"let $RUST_SRC_PATH="/path/to/rustc/src"
-
 " Plugin: Scratch - keys to open temporary Scratch buffer
 nnoremap <leader>s :Scratch<CR>
 
@@ -376,15 +366,6 @@ nnoremap <leader>t :TagbarToggle<CR>
 "\}
 
 " Set colorschemes
-"set termguicolors
-"set background=dark
-"colorscheme one
-colorscheme spacegray
-
-"if has('gui_running')
-  "set background=dark
-  "colorscheme one
-"else
-  "set background=dark
-  "colorscheme hybrid_material
-"endif
+set termguicolors
+set background=dark
+colorscheme one
