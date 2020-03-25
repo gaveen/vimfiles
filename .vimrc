@@ -92,7 +92,7 @@ Plug 'godlygeek/tabular',             {'on': 'Tabularize'}
 
 " To: Augment filetype handling and syntax highlighting
 Plug 'ekalinin/Dockerfile.vim',       {'for': 'Dockerfile'}
-Plug 'fatih/vim-go',                  {'for': 'go', 'do': ':GoInstallBinaries'}
+Plug 'fatih/vim-go',                  {'for': 'go'}
 Plug 'vim-pandoc/vim-pandoc-syntax',  {'for': 'pandoc'}
                                       \ | Plug 'vim-pandoc/vim-pandoc'
 Plug 'rodjek/vim-puppet',             {'for': 'puppet'}
