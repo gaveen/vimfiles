@@ -13,8 +13,8 @@ First, you'll need to clone this repository.&nbsp;
 `$ git clone https://github.com/gaveen/vimfiles.git`
 
 Then, you could create symbolic links to the `.vim` directory and `.vimrc` file. Assuming the location where you cloned the repository is `~/Apps/vimfiles`, you can do something like:&nbsp;  
-`$ ln -s ~/Apps/vimfiles/.vim ~/.vim`
-`$ ln -s ~/Apps/vim/.vimrc ~/.vimrc`
+`$ ln -s ~/Apps/vimfiles/.vim ~/.vim`&nbsp;  
+`$ ln -s ~/Apps/vimfiles/.vimrc ~/.vimrc`
 
 Finally, launch vim and install the plugins. (_Note:_ `:PlugUpgrade` will update vim-plug itself)&nbsp;  
 `:PlugUpdate` will install/update plugins
