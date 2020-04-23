@@ -313,9 +313,9 @@ if has("autocmd")
 endif
 
 " Plugin: Lightline - configuration
-"let g:lightline = {
-      "\ 'colorscheme': 'one',
-      "\ }
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
 
 " Plugin: NERDTree - use colors, cursorline and return/enter key
 let NERDTreeHijackNetrw = 0
