@@ -51,7 +51,7 @@ set mouse=a                           " enable mouse in all modes
 "set textwidth=80                      " set max number of characters per line
 
 " Tweak how Gvim looks
-"set guifont=Inconsolata-g\ Medium\ 11 " set font in gvim
+"set guifont=Fira\ Mono\ 11            " set font in gvim
 set guioptions-=T                     " no toolbar in gvim
 set guioptions-=m                     " no menubar in gvim
 set guioptions-=r                     " no right scrollbar in gvim
