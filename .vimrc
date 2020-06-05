@@ -10,7 +10,7 @@ set history=50                        " and limit history
 set ruler                             " show the cursor position
 set title                             " show title on the window
 set autoread                          " reload file if changed outside vim
-set autowrite                         " save file on some commands
+"set autowrite                         " save file on some commands
 set scrolloff=1                       " minimal no. of lines around cursor
 set t_Co=256                          " assume environment can use 256 colors
 set laststatus=2                      " always show the status line
@@ -143,9 +143,13 @@ if has("autocmd")
     autocmd BufEnter * lcd %:p:h
   augroup END
 
-" Custom filetypes settings: Ruby, JSON, Vagrant
+" Custom filetypes settings: HTML, JavaScript, Ruby, JSON, Vagrant
   augroup code_langs
     autocmd!
+    autocmd FileType html
+            \ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    autocmd FileType javascript
+            \ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     autocmd FileType ruby
             \ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     autocmd FileType go
