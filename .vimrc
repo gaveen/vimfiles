@@ -373,3 +373,4 @@ nnoremap <leader>t :TagbarToggle<CR>
 set termguicolors
 set background=dark
 colorscheme one
+"hi Normal guibg=NONE ctermbg=NONE
