@@ -51,7 +51,7 @@ set mouse=a                           " enable mouse in all modes
 "set textwidth=80                      " set max number of characters per line
 
 " Tweak how Gvim looks
-"set guifont=Fira\ Mono\ 11            " set font in gvim
+"set guifont=Fira\ Code\ weight=450\ 12 " set font in gvim
 set guioptions-=T                     " no toolbar in gvim
 set guioptions-=m                     " no menubar in gvim
 set guioptions-=r                     " no right scrollbar in gvim
@@ -143,7 +143,7 @@ if has("autocmd")
     autocmd BufEnter * lcd %:p:h
   augroup END
 
-" Custom filetypes settings: HTML, JavaScript, Ruby, JSON, Vagrant
+" Custom filetypes settings: HTML, JavaScript, Ruby, Go, JSON, Vagrant
   augroup code_langs
     autocmd!
     autocmd FileType html
@@ -205,7 +205,7 @@ vnoremap <F1> <ESC>
 noremap <F4> :setlocal spell! spelllang=en_us<CR>
 
 " Map F5 key to change font in gvim
-"noremap <F5> :set guifont=Inconsolata-g\ Medium\ 11<CR>
+"noremap <F5> :set guifont=Fira\ Code\ weight=450\ 12<CR>
 
 " Map F6 key to change font in gvim
 "noremap <F6> :set guifont=Courier\ 10\ Pitch\ 12<CR>
@@ -335,42 +335,147 @@ let g:pandoc_no_folding = 1
 nnoremap <leader>s :Scratch<CR>
 
 " Plugin: Tagbar - give focus the Tagbar when it's opened
+" Requires universal-ctags and ~/.ctags.d/*.ctags files for: terraform, yaml
 let g:tagbar_autofocus = 1
 " Plugin: Tagbar - keys to toggle Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
-" Plugin: Tagbar - Support for Rust, Puppet, Makefile (Depends on: ~/.ctags)
 " Additional details available at https://github.com/majutsushi/tagbar/wiki
+" Plugin: Tagbar - Support for JSON
+"let g:tagbar_type_json = {
+    "\ 'ctagstype' : 'json',
+    "\ 'kinds' : [
+      "\ 'o:objects',
+      "\ 'a:arrays',
+      "\ 'n:numbers',
+      "\ 's:strings',
+      "\ 'b:booleans',
+      "\ 'z:nulls'
+    "\ ],
+  "\ 'sro' : '.',
+    "\ 'scope2kind': {
+    "\ 'object': 'o',
+      "\ 'array': 'a',
+      "\ 'number': 'n',
+      "\ 'string': 's',
+      "\ 'boolean': 'b',
+      "\ 'null': 'z'
+    "\ },
+    "\ 'kind2scope': {
+    "\ 'o': 'object',
+      "\ 'a': 'array',
+      "\ 'n': 'number',
+      "\ 's': 'string',
+      "\ 'b': 'boolean',
+      "\ 'z': 'null'
+    "\ },
+    "\ 'sort' : 0
+    "\ }
+"" Plugin: Tagbar - Support for Markdown
+"let g:tagbar_type_markdown = {
+  "\ 'ctagstype'	: 'markdown',
+  "\ 'kinds'		: [
+    "\ 'c:chapter:0:1',
+    "\ 's:section:0:1',
+    "\ 'S:subsection:0:1',
+    "\ 't:subsubsection:0:1',
+    "\ 'T:l4subsection:0:1',
+    "\ 'u:l5subsection:0:1',
+  "\ ],
+  "\ 'sro'			: '""',
+  "\ 'kind2scope'	: {
+    "\ 'c' : 'chapter',
+    "\ 's' : 'section',
+    "\ 'S' : 'subsection',
+    "\ 't' : 'subsubsection',
+    "\ 'T' : 'l4subsection',
+  "\ },
+  "\ 'scope2kind'	: {
+    "\ 'chapter' : 'c',
+    "\ 'section' : 's',
+    "\ 'subsection' : 'S',
+    "\ 'subsubsection' : 't',
+    "\ 'l4subsection' : 'T',
+  "\ },
+"\ }
+"" Plugin: Tagbar - Support for Rust
+"let g:rust_use_custom_ctags_defs = 1  " if using rust.vim
 "let g:tagbar_type_rust = {
+  "\ 'ctagsbin' : '/path/to/your/universal/ctags',
   "\ 'ctagstype' : 'rust',
   "\ 'kinds' : [
-    "\'T:types,type definitions',
-    "\'f:functions,function definitions',
-    "\'g:enum,enumeration names',
-    "\'s:structure names',
-    "\'m:modules,module names',
-    "\'c:consts,static constants',
-    "\'t:traits,traits',
-    "\'i:impls,trait implementations',
-  "\]
-"\}
-"let g:tagbar_type_puppet = {
-  "\ 'ctagstype': 'puppet',
+      "\ 'n:modules',
+      "\ 's:structures:1',
+      "\ 'i:interfaces',
+      "\ 'c:implementations',
+      "\ 'f:functions:1',
+      "\ 'g:enumerations:1',
+      "\ 't:type aliases:1:0',
+      "\ 'C:constants:1:0',
+      "\ 'M:macros:1',
+      "\ 'm:fields:1:0',
+      "\ 'e:enum variants:1:0',
+      "\ 'P:methods:1',
+  "\ ],
+  "\ 'sro': '::',
+  "\ 'kind2scope' : {
+      "\ 'n': 'module',
+      "\ 's': 'struct',
+      "\ 'i': 'interface',
+      "\ 'c': 'implementation',
+      "\ 'f': 'function',
+      "\ 'g': 'enum',
+      "\ 't': 'typedef',
+      "\ 'v': 'variable',
+      "\ 'M': 'macro',
+      "\ 'm': 'field',
+      "\ 'e': 'enumerator',
+      "\ 'P': 'method',
+  "\ },
+"\ }
+"" Plugin: Tagbar - Support for Terraform (Depends on: custom ctags config)
+"let g:tagbar_type_tf = {
+  "\ 'ctagstype': 'tf',
   "\ 'kinds': [
-    "\'c:class',
-    "\'s:site',
-    "\'n:node',
-    "\'d:definition'
-  "\]
-"\}
-"let g:tagbar_type_make = {
-  "\ 'kinds':[
-    "\ 'm:macros',
-    "\ 't:targets'
-  "\]
-"\}
+    "\ 'r:Resource',
+    "\ 'R:Resource',
+    "\ 'd:Data',
+    "\ 'D:Data',
+    "\ 'v:Variable',
+    "\ 'V:Variable',
+    "\ 'p:Provider',
+    "\ 'P:Provider',
+    "\ 'm:Module',
+    "\ 'M:Module',
+    "\ 'o:Output',
+    "\ 'O:Output',
+    "\ 'f:TFVar',
+    "\ 'F:TFVar'
+  "\ ]
+"\ }
+"" Plugin: Tagbar - Support for YAML (Depends on: custom ctags config)
+"let g:tagbar_type_yaml = {
+    "\ 'ctagstype' : 'yaml',
+    "\ 'kinds' : [
+        "\ 'a:anchors',
+        "\ 's:section',
+        "\ 'e:entry'
+    "\ ],
+  "\ 'sro' : '.',
+    "\ 'scope2kind': {
+      "\ 'section': 's',
+      "\ 'entry': 'e'
+    "\ },
+    "\ 'kind2scope': {
+      "\ 's': 'section',
+      "\ 'e': 'entry'
+    "\ },
+    "\ 'sort' : 0
+    "\ }
 
 " Set colorschemes
 set termguicolors
 set background=dark
 colorscheme one
+
+" Set background to none for tranparency in terminal 
 "hi Normal guibg=NONE ctermbg=NONE
