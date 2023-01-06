@@ -335,11 +335,40 @@ let g:pandoc_no_folding = 1
 nnoremap <leader>s :Scratch<CR>
 
 " Plugin: Tagbar - give focus the Tagbar when it's opened
-" Requires universal-ctags and ~/.ctags.d/*.ctags files for: terraform, yaml
+" Requires universal-ctags and ~/.ctags.d/*.ctags files for: Terraform, YAML
+" Requires gotags for: Go
 let g:tagbar_autofocus = 1
 " Plugin: Tagbar - keys to toggle Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
 " Additional details available at https://github.com/majutsushi/tagbar/wiki
+"" Plugin: Tagbar - Support for Go (Depends on: gotags)
+"let g:tagbar_type_go = {
+	"\ 'ctagstype' : 'go',
+	"\ 'kinds'     : [
+		"\ 'p:package',
+		"\ 'i:imports:1',
+		"\ 'c:constants',
+		"\ 'v:variables',
+		"\ 't:types',
+		"\ 'n:interfaces',
+		"\ 'w:fields',
+		"\ 'e:embedded',
+		"\ 'm:methods',
+		"\ 'r:constructor',
+		"\ 'f:functions'
+	"\ ],
+	"\ 'sro' : '.',
+	"\ 'kind2scope' : {
+		"\ 't' : 'ctype',
+		"\ 'n' : 'ntype'
+	"\ },
+	"\ 'scope2kind' : {
+		"\ 'ctype' : 't',
+		"\ 'ntype' : 'n'
+	"\ },
+	"\ 'ctagsbin'  : 'gotags',
+	"\ 'ctagsargs' : '-sort -silent'
+"\ }
 " Plugin: Tagbar - Support for JSON
 "let g:tagbar_type_json = {
     "\ 'ctagstype' : 'json',

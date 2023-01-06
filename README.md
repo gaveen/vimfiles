@@ -26,6 +26,7 @@ Finally, launch vim and install the plugins. (_Note:_ `:PlugUpgrade` will update
 
 ### Optional dependencies
 - **universal ctags**, used by `tagbar`. (_Package names:_ Fedora family: `ctags`, Debian family: `universal-ctags`)
+- **gotags**, used by `tagbar` support for Go. (_Package:_ https://github.com/jstemmer/gotags)
 - **wmctrl**, used to toggle full-screen in gvim. (_Package names:_: Fedora family: `wmctrl`, Debian family: `wmctrl`)
 
 &nbsp;  
