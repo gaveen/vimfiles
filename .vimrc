@@ -76,18 +76,18 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-surround'
 
 " To: Augment UI elements
-Plug 'vim-scripts/buftabs'
+Plug 'zevv/buftabs'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/limelight.vim',        {'on': 'Limelight'}
-Plug 'scrooloose/nerdtree',           {'on': 'NERDTreeToggle'}
+Plug 'preservim/nerdtree',            {'on': 'NERDTreeToggle'}
 Plug 'mtth/scratch.vim',              {'on': 'Scratch'}
-Plug 'majutsushi/tagbar',             {'on': 'TagbarToggle'}
+Plug 'preservim/tagbar',              {'on': 'TagbarToggle'}
 
 " To: Add utility
 Plug 'ctrlpvim/ctrlp.vim',            {'on': 'CtrlP'}
 Plug 'tpope/vim-fugitive'
 Plug 'yegappan/grep',                 {'on': ['Grep', 'Rg']}
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular',             {'on': 'Tabularize'}
 
 " To: Augment filetype handling and syntax highlighting
@@ -95,25 +95,25 @@ Plug 'ekalinin/Dockerfile.vim',       {'for': 'Dockerfile'}
 Plug 'fatih/vim-go',                  {'for': 'go'}
 Plug 'vim-pandoc/vim-pandoc-syntax',  {'for': 'pandoc'}
                                       \ | Plug 'vim-pandoc/vim-pandoc'
-Plug 'rodjek/vim-puppet',             {'for': 'puppet'}
 Plug 'rust-lang/rust.vim',            {'for': 'rust'}
 Plug 'cespare/vim-toml',              {'for': 'toml'}
 
 " To: Add colorschemes (in addition to ones in .vim/colors)
-Plug 'chriskempson/base16-vim'
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'nielsmadan/harlequin'
-Plug 'w0ng/vim-hybrid'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'nanotech/jellybeans.vim'
-Plug 'Wutzara/vim-materialtheme'
-Plug 'tomasr/molokai'
+"Plug 'chriskempson/base16-vim'
+"Plug 'lifepillar/vim-gruvbox8'
+"Plug 'nielsmadan/harlequin'
+"Plug 'w0ng/vim-hybrid'
+"Plug 'kristijanhusak/vim-hybrid-material'
+"Plug 'nanotech/jellybeans.vim'
+"Plug 'Wutzara/vim-materialtheme'
+"Plug 'tomasr/molokai'
+"Plug 'sickill/vim-monoka'
 Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'jpo/vim-railscasts-theme'
+"Plug 'joshdick/onedark.vim'
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'jpo/vim-railscasts-theme'
 Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/vim-tomorrow-theme'
+"Plug 'chriskempson/vim-tomorrow-theme'
 
 " End vim-plug definitions
 call plug#end()
