@@ -45,6 +45,7 @@ set pastetoggle=<F2>                  " F2 toggles indenting when pasting
 
 " How IO behave
 set ttyfast                           " assume the terminal is fast
+set ttymouse=sgr                      " mouse compatibility for alacritty (sgr)
 set mouse=a                           " enable mouse in all modes
 
 " Settings that can can affect content
