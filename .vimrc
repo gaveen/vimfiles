@@ -10,7 +10,6 @@ set history=50                        " and limit history
 set ruler                             " show the cursor position
 set title                             " show title on the window
 set autoread                          " reload file if changed outside vim
-"set autowrite                         " save file on some commands
 set scrolloff=1                       " minimal no. of lines around cursor
 set t_Co=256                          " assume environment can use 256 colors
 set laststatus=2                      " always show the status line
@@ -34,7 +33,7 @@ set incsearch                         " start searching as you type
 
 " How non-printable things are shown
 set list                              " show non-print characters,...
-set listchars=trail:⋅,nbsp:⋅,tab:▷⋅   " for tabs and trailing spaces
+set listchars=tab:<->,trail:_,nbsp:+  " for tabs and trailing spaces
 set number                            " show line number for current line,...
 set relativenumber                    " and relative line numbers for others
 set cursorline                        " highlight the line with the cursor
@@ -52,14 +51,14 @@ set mouse=a                           " enable mouse in all modes
 "set textwidth=80                      " set max number of characters per line
 
 " Tweak how Gvim looks
-"set guifont=Fira\ Code\ weight=450\ 12 " set font in gvim
+set guifont=Fira\ Code\ weight=450\ 13 " set font in gvim
 set guioptions-=T                     " no toolbar in gvim
 set guioptions-=m                     " no menubar in gvim
 set guioptions-=r                     " no right scrollbar in gvim
 set guioptions-=L                     " no left scrollbar when v.split in gvim
 
 " Set the <leader> key
-let mapleader = ","
+let mapleader = " "
 
 " How syntax-based text completion and folding behave
 setlocal ofu=syntaxcomplete#Complete  " enable syntax based word completion
@@ -81,8 +80,6 @@ Plug 'zevv/buftabs'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/limelight.vim',        {'on': 'Limelight'}
 Plug 'preservim/nerdtree',            {'on': 'NERDTreeToggle'}
-Plug 'mtth/scratch.vim',              {'on': 'Scratch'}
-Plug 'preservim/tagbar',              {'on': 'TagbarToggle'}
 
 " To: Add utility
 Plug 'ctrlpvim/ctrlp.vim',            {'on': 'CtrlP'}
@@ -113,7 +110,7 @@ Plug 'rakr/vim-one'
 "Plug 'joshdick/onedark.vim'
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'jpo/vim-railscasts-theme'
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 "Plug 'chriskempson/vim-tomorrow-theme'
 
 " End vim-plug definitions
@@ -161,7 +158,7 @@ if has("autocmd")
 endif
 
 " Function: View changes after the last save
-function! s:DiffWithSaved()
+function! s:DiffUnsaved()
   let filetype=&ft
   diffthis
   vnew | r # | normal! 1Gdd
@@ -169,7 +166,7 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
   exe "normal! ]c"
 endfunction
-com! DiffSaved call s:DiffWithSaved()
+com! DiffOrig call s:DiffUnsaved()
 
 " Function: Toggle Quickfix window
 let g:quickfix_open = 0
@@ -191,28 +188,11 @@ function! ToggleFullScreen()
   redraw
 endfunction
 
-" Uncomment following section to disable arrow keys (use hjkl instead).
-"noremap <up> <nop>
-"noremap <down> <nop>
-"noremap <left> <nop>
-"noremap <right> <nop>
-
-" Map F1 key to Esc
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+" Map F3 to toggle focus-highlighting
+noremap <F3> :Limelight!!<CR>
 
 " Map F4 key to toggle spell checking
 noremap <F4> :setlocal spell! spelllang=en_us<CR>
-
-" Map F5 key to change font in gvim
-"noremap <F5> :set guifont=Fira\ Code\ weight=450\ 12<CR>
-
-" Map F6 key to change font in gvim
-"noremap <F6> :set guifont=Courier\ 10\ Pitch\ 12<CR>
-
-" Map F7 to toggle focus-highlighting
-noremap <F7> :Limelight!!<CR>
 
 " Map F8 to toggle pattern scase-sensitivity (when uppercase are not used)
 noremap <F8> :set ignorecase<CR>
@@ -223,9 +203,6 @@ noremap <F10> :set colorcolumn=81
 " Map key to function: Toggle full screen mode in gvim
 " Requires wmctrl and a compatible WM. When ready, uncomment following line.
 nnoremap <F11> :call ToggleFullScreen()<CR>
-
-" Map F12 to toggle between dark/light background
-noremap <F12> :let &background = ( &background == "dark"? "light" : "dark"  )<CR>
 
 " Map Tab key to % (for working with matching pairs) in normal & visual modes.
 nnoremap <tab> %
@@ -261,7 +238,7 @@ nnoremap <leader>bd :bp <BAR> bd #<CR>
 nnoremap <leader>/ :noh<CR>
 
 " Map key to function: View changes after the last save
-nnoremap <leader>? :DiffSaved<CR>
+nnoremap <leader>, :DiffOrig<CR>
 
 " Map key to function: Toggle Quickfix window.
 " When in doubt, try the shortcut twice.
@@ -285,9 +262,6 @@ nnoremap <leader>J vipJ
 
 " Map w!! to write file with sudo, when forgot to open with sudo.
 cmap w!! w !sudo tee % >/dev/null
-
-" Plugin: Auto Pairs - key to toggle auto-complete
-let g:AutoPairsShortcutToggle = '<F3>'
 
 " Plugin: buftabs - configuration
 let g:buftabs_only_basename=1
@@ -331,176 +305,6 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 
 " Plugin: Pandoc - no folding by default
 let g:pandoc_no_folding = 1
-
-" Plugin: Scratch - keys to open temporary Scratch buffer
-nnoremap <leader>s :Scratch<CR>
-
-" Plugin: Tagbar - give focus the Tagbar when it's opened
-" Requires universal-ctags and ~/.ctags.d/*.ctags files for: Terraform, YAML
-" Requires gotags for: Go
-let g:tagbar_autofocus = 1
-" Plugin: Tagbar - keys to toggle Tagbar
-nnoremap <leader>t :TagbarToggle<CR>
-" Additional details available at https://github.com/majutsushi/tagbar/wiki
-"" Plugin: Tagbar - Support for Go (Depends on: gotags)
-"let g:tagbar_type_go = {
-	"\ 'ctagstype' : 'go',
-	"\ 'kinds'     : [
-		"\ 'p:package',
-		"\ 'i:imports:1',
-		"\ 'c:constants',
-		"\ 'v:variables',
-		"\ 't:types',
-		"\ 'n:interfaces',
-		"\ 'w:fields',
-		"\ 'e:embedded',
-		"\ 'm:methods',
-		"\ 'r:constructor',
-		"\ 'f:functions'
-	"\ ],
-	"\ 'sro' : '.',
-	"\ 'kind2scope' : {
-		"\ 't' : 'ctype',
-		"\ 'n' : 'ntype'
-	"\ },
-	"\ 'scope2kind' : {
-		"\ 'ctype' : 't',
-		"\ 'ntype' : 'n'
-	"\ },
-	"\ 'ctagsbin'  : 'gotags',
-	"\ 'ctagsargs' : '-sort -silent'
-"\ }
-" Plugin: Tagbar - Support for JSON
-"let g:tagbar_type_json = {
-    "\ 'ctagstype' : 'json',
-    "\ 'kinds' : [
-      "\ 'o:objects',
-      "\ 'a:arrays',
-      "\ 'n:numbers',
-      "\ 's:strings',
-      "\ 'b:booleans',
-      "\ 'z:nulls'
-    "\ ],
-  "\ 'sro' : '.',
-    "\ 'scope2kind': {
-    "\ 'object': 'o',
-      "\ 'array': 'a',
-      "\ 'number': 'n',
-      "\ 'string': 's',
-      "\ 'boolean': 'b',
-      "\ 'null': 'z'
-    "\ },
-    "\ 'kind2scope': {
-    "\ 'o': 'object',
-      "\ 'a': 'array',
-      "\ 'n': 'number',
-      "\ 's': 'string',
-      "\ 'b': 'boolean',
-      "\ 'z': 'null'
-    "\ },
-    "\ 'sort' : 0
-    "\ }
-"" Plugin: Tagbar - Support for Markdown
-"let g:tagbar_type_markdown = {
-  "\ 'ctagstype'	: 'markdown',
-  "\ 'kinds'		: [
-    "\ 'c:chapter:0:1',
-    "\ 's:section:0:1',
-    "\ 'S:subsection:0:1',
-    "\ 't:subsubsection:0:1',
-    "\ 'T:l4subsection:0:1',
-    "\ 'u:l5subsection:0:1',
-  "\ ],
-  "\ 'sro'			: '""',
-  "\ 'kind2scope'	: {
-    "\ 'c' : 'chapter',
-    "\ 's' : 'section',
-    "\ 'S' : 'subsection',
-    "\ 't' : 'subsubsection',
-    "\ 'T' : 'l4subsection',
-  "\ },
-  "\ 'scope2kind'	: {
-    "\ 'chapter' : 'c',
-    "\ 'section' : 's',
-    "\ 'subsection' : 'S',
-    "\ 'subsubsection' : 't',
-    "\ 'l4subsection' : 'T',
-  "\ },
-"\ }
-"" Plugin: Tagbar - Support for Rust
-"let g:rust_use_custom_ctags_defs = 1  " if using rust.vim
-"let g:tagbar_type_rust = {
-  "\ 'ctagsbin' : '/path/to/your/universal/ctags',
-  "\ 'ctagstype' : 'rust',
-  "\ 'kinds' : [
-      "\ 'n:modules',
-      "\ 's:structures:1',
-      "\ 'i:interfaces',
-      "\ 'c:implementations',
-      "\ 'f:functions:1',
-      "\ 'g:enumerations:1',
-      "\ 't:type aliases:1:0',
-      "\ 'C:constants:1:0',
-      "\ 'M:macros:1',
-      "\ 'm:fields:1:0',
-      "\ 'e:enum variants:1:0',
-      "\ 'P:methods:1',
-  "\ ],
-  "\ 'sro': '::',
-  "\ 'kind2scope' : {
-      "\ 'n': 'module',
-      "\ 's': 'struct',
-      "\ 'i': 'interface',
-      "\ 'c': 'implementation',
-      "\ 'f': 'function',
-      "\ 'g': 'enum',
-      "\ 't': 'typedef',
-      "\ 'v': 'variable',
-      "\ 'M': 'macro',
-      "\ 'm': 'field',
-      "\ 'e': 'enumerator',
-      "\ 'P': 'method',
-  "\ },
-"\ }
-"" Plugin: Tagbar - Support for Terraform (Depends on: custom ctags config)
-"let g:tagbar_type_tf = {
-  "\ 'ctagstype': 'tf',
-  "\ 'kinds': [
-    "\ 'r:Resource',
-    "\ 'R:Resource',
-    "\ 'd:Data',
-    "\ 'D:Data',
-    "\ 'v:Variable',
-    "\ 'V:Variable',
-    "\ 'p:Provider',
-    "\ 'P:Provider',
-    "\ 'm:Module',
-    "\ 'M:Module',
-    "\ 'o:Output',
-    "\ 'O:Output',
-    "\ 'f:TFVar',
-    "\ 'F:TFVar'
-  "\ ]
-"\ }
-"" Plugin: Tagbar - Support for YAML (Depends on: custom ctags config)
-"let g:tagbar_type_yaml = {
-    "\ 'ctagstype' : 'yaml',
-    "\ 'kinds' : [
-        "\ 'a:anchors',
-        "\ 's:section',
-        "\ 'e:entry'
-    "\ ],
-  "\ 'sro' : '.',
-    "\ 'scope2kind': {
-      "\ 'section': 's',
-      "\ 'entry': 'e'
-    "\ },
-    "\ 'kind2scope': {
-      "\ 's': 'section',
-      "\ 'e': 'entry'
-    "\ },
-    "\ 'sort' : 0
-    "\ }
 
 " Set colorschemes
 set termguicolors

@@ -1,10 +1,13 @@
 # Vimfiles
 
-This is my current [vimfiles](https://gaveen.me/2020/02/my-vim-story/). Plugins are managed with [`vim-plug`](https://github.com/junegunn/vim-plug). These should work with vim/gvim and neovim.
+This is my current vim (and gvim) setup files.
 
-This is not intended as a distribution, as I may change it depending on the work I'm doing. Plus, I pretty much only use this under Linux. But, you are more than welcome to use my vim files to explore. I have tried to keep my `.vimrc` file well commended for your convenience.
+There are many like it but this one is mine. This is not intended as a distribution. Therefore, you can expect things to change on a whim. Feel free to look around and steal ideas though.
 
-&nbsp;  
+I have explained about this setup in [a blog post](https://gaveen.me/2020/02/my-vim-story/). The plugins are managed with '[`vim-plug`](https://github.com/junegunn/vim-plug)' and the setup is tested only on [Vim](https://www.vim.org/) > v9.0 on Linux.
+
+I have a separate configuration setup for Neovim in the repository [neovimfiles](https://github.com/gaveen/neovimfiles/) because I set it up with additional features.
+
 
 ## How to use
 If you still want to use these vimfiles, this is how you can do so.
@@ -19,17 +22,16 @@ Then, you could create symbolic links to the `.vim` directory and `.vimrc` file.
 Finally, launch vim and install the plugins. (_Note:_ `:PlugUpgrade` will update vim-plug itself)&nbsp;  
 `:PlugUpdate` will install/update plugins
 
+The **Leader** key is set as the `Space` character.
+
+
 ### Dependencies
-- `git`: used by `vim-plug` to keep plugins up-to-date
-- A relatively newer version of vim/gvim/neovim
+- A relatively newer version of vim/gvim
 - An internet connection (to install/update plugins)
+- `git` used by `vim-plug` to keep plugins up-to-date
+- `wl-copy` used for copying to clipboard (over Wayland) 
+- `wmctrl` used for gvim toggle full-screen
 
-### Optional dependencies
-- **universal ctags**, used by `tagbar`. (_Package names:_ Fedora family: `ctags`, Debian family: `universal-ctags`)
-- **gotags**, used by `tagbar` support for Go. (_Package:_ https://github.com/jstemmer/gotags)
-- **wmctrl**, used to toggle full-screen in gvim. (_Package names:_: Fedora family: `wmctrl`, Debian family: `wmctrl`)
-
-&nbsp;  
 
 ## Usage tips & tricks
 
@@ -48,19 +50,15 @@ You can read the full details at: https://gaveen.me/2020/02/my-vim-story/
 
 With those out of the way, here are some of the tricks you can do with this particular setup of vimfiles. Some of the following are enabled through plugins.
 
-_Please note:_ **`<leader>` = `,`** in this vimfiles setup
+_Please note:_ **`<leader>` = ` `** in this vimfiles setup
 
 Function Key | Action
 ------------ | ------
-`F1` | Remapped as `Esc` key to avoid accidental F1 presses
 `F2` | Toggle auto-indenting when pasting
-`F3` | Toggle auto-completing matching pairs
+`F3` | Toggle focus-highlighting
 `F4` | Toggle spell checking (default lang: en_US)
-`F7` | Toggle focus-highlighting
-`F8` | Toggle case-sensitivity in patterns
 `F10` | Trigger showing a margin (with user input)
 `F11` | Toggle fullscreen in gvim (if supported)
-`F12` | Toggle light/dark background (if supported)
 
 &nbsp;  
 
@@ -93,10 +91,10 @@ Motion Shortcut | Action
 
 Visual Cue Shortcut | Action
 ------------------- | ------
+`<leader>,` | Compare the changes since the last save
 `<leader>/` | Clear the highlighting of last searched pattern
 `<leader>l` | Toggle displaying non-printable characters
 `<leader>v` | Select the text that was pasted immediately before
-`<leader>?` | Compare the changes since the last save
 `za` | Toggle code folding based on syntax
 
 &nbsp;  
@@ -104,8 +102,6 @@ Visual Cue Shortcut | Action
 UI Element Shortcut | Action
 ------------------- | ------
 `<leader>d` | Toggle directory tree pane
-`<leader>t` | Toggle tagbar pane
-`<leader>s` | Toggle temporary jotting area (content not saved)
 `<leader>q` | Toggle displaying the quickfix window
 
 &nbsp;  
@@ -146,5 +142,3 @@ Since Vim is an advanced editor and plugins add even more features, it doesn't m
 Vim comes with extensive help documentation. To find out more about a given topic, you can access the vim help by typing :h {topic}. For example, to find about Vim's text folding features, type `:h folding`.
 
 At least some of the plugins also come with documentation. Therefore, please try to refer the relevant documetation the same way. For example, to find more about motion shortcuts enabled by EasyMotion plugin, type `:h easymotion`.
-
-Finally, additional live help can be requested from the #vim IRC channel on freenode.net. It is a helpful community and they can help you to answer specfic questions you may have.
