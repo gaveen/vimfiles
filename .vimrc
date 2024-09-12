@@ -309,7 +309,12 @@ let g:pandoc_no_folding = 1
 " Set colorschemes
 set termguicolors
 set background=dark
-colorscheme one
+
+try
+  colorscheme one
+catch
+  echo "Colorscheme 'one' not found."
+endtry
 
 " Set background to none for tranparency in terminal 
 "hi Normal guibg=NONE ctermbg=NONE
