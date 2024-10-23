@@ -29,8 +29,9 @@ The **Leader** key is set as the `Space` character.
 - A relatively newer version of vim/gvim
 - An internet connection (to install/update plugins)
 - `git` used by `vim-plug` to keep plugins up-to-date
-- `wl-copy` used for copying to clipboard (over Wayland) 
+- `wl-copy` used for copying to clipboard (over Wayland)
 - `wmctrl` used for gvim toggle full-screen
+- `ctags` used for traversing by tags
 
 
 ## Usage tips & tricks
@@ -55,8 +56,10 @@ _Please note:_ **`<leader>` = ` `** in this vimfiles setup
 Function Key | Action
 ------------ | ------
 `F2` | Toggle auto-indenting when pasting
-`F3` | Toggle focus-highlighting
+`F3` | Toggle focus-highlighting (plugin)
 `F4` | Toggle spell checking (default lang: en_US)
+`F7` | Toggle vista (plugin)
+`F8` | Toggle tagbar (plugin)
 `F10` | Trigger showing a margin (with user input)
 `F11` | Toggle fullscreen in gvim (if supported)
 

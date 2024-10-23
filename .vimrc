@@ -85,8 +85,11 @@ Plug 'preservim/nerdtree',            {'on': 'NERDTreeToggle'}
 Plug 'ctrlpvim/ctrlp.vim',            {'on': 'CtrlP'}
 Plug 'tpope/vim-fugitive'
 Plug 'yegappan/grep',                 {'on': ['Grep', 'Rg']}
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular',             {'on': 'Tabularize'}
+Plug 'preservim/tagbar',              {'on': 'TagbarToggle'}
+Plug 'liuchengxu/vista.vim',          {'on': 'Vista'}
 
 " To: Augment filetype handling and syntax highlighting
 Plug 'ekalinin/Dockerfile.vim',       {'for': 'Dockerfile'}
@@ -188,14 +191,20 @@ function! ToggleFullScreen()
   redraw
 endfunction
 
-" Map F3 to toggle focus-highlighting
+" Map F3 to toggle focus-highlighting [Plugin]
 noremap <F3> :Limelight!!<CR>
 
 " Map F4 key to toggle spell checking
 noremap <F4> :setlocal spell! spelllang=en_us<CR>
 
-" Map F8 to toggle pattern scase-sensitivity (when uppercase are not used)
-noremap <F8> :set ignorecase<CR>
+" Map F7 key to toggle vista [Plugin]
+noremap <F7> :Vista!!<CR>
+
+" Map F8 key to toggle tagbar [Plugin]
+noremap <F8> :TagbarToggle<CR>
+
+" Map F9 to toggle pattern scase-sensitivity (when uppercase are not used)
+noremap <F9> :set ignorecase<CR>
 
 " Map F10 for a promt to input where to show a margin. Then hit <CR> to show.
 noremap <F10> :set colorcolumn=81
